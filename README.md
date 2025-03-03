@@ -1,3 +1,3 @@
 # The-Crowd-Pleaser
 
-uhh Minecraft
+A rhythm and minigame based game comedy act. 
