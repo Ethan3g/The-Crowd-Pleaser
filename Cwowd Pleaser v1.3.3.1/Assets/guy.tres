@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dib8nd2oi2m6b"]
+
+[ext_resource type="Texture2D" uid="uid://b5qp0y11hh5j2" path="res://Assets/comedian.PNG" id="1_gag5j"]
+
+[resource]
+atlas = ExtResource("1_gag5j")
+region = Rect2(112, 16, 16, 16)
