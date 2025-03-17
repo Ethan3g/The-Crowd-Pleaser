@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3bed30hd5xan"]
+
+[ext_resource type="Script" uid="uid://cybf05gp5kl0c" path="res://MiniGames/Tomato/TomSpawner/bullet_spawner.gd" id="1_wmnpa"]
+[ext_resource type="PackedScene" uid="uid://b5rnannvhlox0" path="res://MiniGames/Tomato/Tomo/bullet.tscn" id="2_4jt47"]
+
+[node name="BulletSpawner" type="Node2D"]
+position = Vector2(573, 334)
+script = ExtResource("1_wmnpa")
+bullet_scene = ExtResource("2_4jt47")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.365
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
