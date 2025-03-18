@@ -1,14 +1,14 @@
 [gd_scene load_steps=115 format=3 uid="uid://3dhme6ybutgj"]
 
-[ext_resource type="Script" uid="uid://csmrxundg4b1f" path="res://Scripts/stage.gd" id="1_bpe5g"]
+[ext_resource type="Script" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
-[ext_resource type="Script" uid="uid://dt8r3ino7f4s" path="res://Scripts/wrongitem.gd" id="2_3slxw"]
+[ext_resource type="Script" path="res://Scripts/wrongitem.gd" id="2_3slxw"]
 [ext_resource type="Texture2D" uid="uid://s1j04okehk64" path="res://MiniGames/Wack/WackArt/WackHit.tres" id="2_7tlp2"]
 [ext_resource type="Texture2D" uid="uid://qdrlgi0xwbl4" path="res://Assets/bar.tres" id="3_jcvgs"]
 [ext_resource type="Texture2D" uid="uid://bokohp8igxwi2" path="res://Assets/Death.png" id="3_jvksg"]
 [ext_resource type="Texture2D" uid="uid://dlgqk4rqq36n6" path="res://MiniGames/Wack/WackArt/WackActive.tres" id="3_oehgk"]
 [ext_resource type="Texture2D" uid="uid://4odi10yqvrxb" path="res://MiniGames/Wack/WackArt/WackIdle.tres" id="4_hhx17"]
-[ext_resource type="Script" uid="uid://b6e5pkvopqhwa" path="res://Scripts/rightitem.gd" id="4_kaaop"]
+[ext_resource type="Script" path="res://Scripts/rightitem.gd" id="4_kaaop"]
 [ext_resource type="Texture2D" uid="uid://bvvnsjv171h8s" path="res://Stage Assets/Green.tres" id="5_kq5jr"]
 [ext_resource type="Texture2D" uid="uid://cukqyid82ff14" path="res://Assets/DragonWin.PNG" id="5_xcf6w"]
 [ext_resource type="Texture2D" uid="uid://dm8w0fl55ud16" path="res://Assets/stage.PNG" id="6_eb2dc"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dkxtru43qih23" path="res://MiniGames/Wack/WackArt/Wack-letter.png" id="9_pkfj5"]
 [ext_resource type="Texture2D" uid="uid://dp06fnlrrqx55" path="res://MiniGames/Wack/WackArt/C.tres" id="10_6bg1w"]
 [ext_resource type="Texture2D" uid="uid://d3kb7rlt63m07" path="res://Assets/items.PNG" id="10_dv7bk"]
-[ext_resource type="Script" uid="uid://b13vi3pnd5nbx" path="res://MiniGames/RPS/game_logic.gd" id="10_iebwu"]
+[ext_resource type="Script" path="res://MiniGames/RPS/game_logic.gd" id="10_iebwu"]
 [ext_resource type="Texture2D" uid="uid://bmg0n3qy454vt" path="res://Assets/waterbucket.tres" id="11_c8erv"]
 [ext_resource type="Texture2D" uid="uid://cfrikjpl0jnos" path="res://MiniGames/RPS/RPSart/RockCLEAR.png" id="11_g45yf"]
 [ext_resource type="Texture2D" uid="uid://c0jbv3uc0d7ij" path="res://MiniGames/Wack/WackArt/D.tres" id="11_ri2lh"]
@@ -599,20 +599,19 @@ offset_bottom = 862.0
 texture_pressed = ExtResource("7_jwr2b")
 texture_hover = ExtResource("7_jwr2b")
 stretch_mode = 4
-script = ExtResource("2_3slxw")
+script = ExtResource("4_kaaop")
 
-[node name="death" type="TextureRect" parent="BenderDragon/Item2"]
+[node name="deadDragon" type="TextureRect" parent="BenderDragon/Item2"]
 visible = false
-layout_mode = 0
-offset_left = -422.0
-offset_top = -594.0
-offset_right = 859.0
-offset_bottom = 151.0
-texture = ExtResource("3_jvksg")
+offset_left = -419.528
+offset_top = -587.0
+offset_right = 851.472
+offset_bottom = 148.0
+texture = ExtResource("5_xcf6w")
 
-[node name="LoseSfx" type="AudioStreamPlayer" parent="BenderDragon/Item2"]
-stream = ExtResource("8_vgt24")
-volume_db = -7.924
+[node name="WinSfx" type="AudioStreamPlayer" parent="BenderDragon/Item2"]
+stream = ExtResource("8_nt1we")
+volume_db = -21.79
 
 [node name="Item3" type="TextureButton" parent="BenderDragon"]
 offset_left = 734.06

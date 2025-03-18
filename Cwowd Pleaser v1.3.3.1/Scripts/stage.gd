@@ -150,8 +150,8 @@ func BenderDragonEnd() -> void:
 	$BenderDragon/Item4.disabled = true;
 	$BenderDragon/Item5.disabled = true;
 	$BenderDragon/Item3/deadDragon.visible = false;
+	$BenderDragon/Item2/deadDragon.visible = false;
 	$BenderDragon/Item1/death.visible = false;
-	$BenderDragon/Item2/death.visible = false;
 	$BenderDragon/Item4/death.visible = false;
 	$BenderDragon/Item5/death.visible = false;
 
