@@ -1,1 +1,7 @@
 res://Scenes/bender_dragon.tscn
+res://MiniGames/Tomato/TomSpawner/bullet_spawner.tscn
+res://MiniGames/Tomato/tomato_game.tscn
+res://MiniGames/Wack/node_2d.tscn
+res://MiniGames/Wack/WackArt/WackActive.tres
+res://MiniGames/Wack/WackArt/WackHit.tres
+res://MiniGames/Wack/WackArt/WackIdle.tres

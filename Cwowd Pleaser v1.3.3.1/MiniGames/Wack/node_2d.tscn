@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://fqqci2xlrn1"]
 
-[ext_resource type="Script" uid="uid://cfg8lpfgm20kj" path="res://MiniGames/Wack/wack_letter.gd" id="1_ku4kd"]
+[ext_resource type="Script" path="res://MiniGames/Wack/wack_letter.gd" id="1_ku4kd"]
 [ext_resource type="AudioStream" uid="uid://i2ytesq2a73c" path="res://Sounds/hitHurt.wav" id="2_mkkw5"]
 [ext_resource type="Texture2D" uid="uid://4odi10yqvrxb" path="res://MiniGames/Wack/WackArt/WackIdle.tres" id="3_ipneg"]
 [ext_resource type="AudioStream" uid="uid://bk6mogk22tf33" path="res://Sounds/retro-video-game-sfx-fail.wav" id="3_pn7vk"]
