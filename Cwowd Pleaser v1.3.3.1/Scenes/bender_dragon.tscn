@@ -880,12 +880,12 @@ stretch_mode = 3
 [node name="ResultLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 564.0
-offset_top = 563.0
+offset_top = 810.0
 offset_right = 1024.0
-offset_bottom = 603.0
+offset_bottom = 850.0
 theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 29
-text = "AHHH!! CHOOSE SOMETHING"
+text = "Rock paper scissors go!!"
 horizontal_alignment = 1
 uppercase = true
 
@@ -902,13 +902,16 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="Control"]
-wait_time = 1.5
+wait_time = 5.0
 one_shot = true
 
 [node name="TimerLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 159.0
+offset_top = 152.0
+offset_right = 199.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 20
 
 [node name="--Sounds--" type="Node" parent="Control"]
 

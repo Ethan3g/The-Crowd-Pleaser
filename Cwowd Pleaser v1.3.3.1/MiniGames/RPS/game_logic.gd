@@ -1,6 +1,5 @@
 extends Control
 
-
 # Export variables to manually set textures in the Godot editor
 var rock_texture = preload("res://MiniGames/RPS/RPSart/OPPONENTRock.png")
 var paper_texture = preload("res://MiniGames/RPS/RPSart/OPPONENTPaper.png")
@@ -20,10 +19,13 @@ var choice_textures = {}
 var player_choice = ""  # Store player's choice when made
 var opponent_choice = ""  # Store opponent's choice for the round
 
-# Varible that says if game is playing or not
-var game_done = false;
-# Signal to let stage.gd that game has ended
+# Variable that says if the game is playing or not
+var game_done = false
+# Signal to let stage.gd that the game has ended
 signal gameDone
+
+var remaining_time = 5  # Set the starting time for the countdown
+var timer_started = false  # Variable to check if the timer has started
 
 func _ready():
 	# Initialize the dictionary with manually set textures
@@ -39,11 +41,8 @@ func _ready():
 	# Connect timer signal
 	timer_node.timeout.connect(_on_timer_timeout)
 
-	# Start the game by displaying the opponent's choice immediately
-	#choose_and_display_opponent_choice()
-
 func choose_and_display_opponent_choice():
-	game_done = false;
+	game_done = false
 	# Randomly select opponent's choice and display it immediately
 	opponent_choice = choose_opponent_choice()
 	if opponent_choice in choice_textures:
@@ -59,9 +58,13 @@ func choose_and_display_opponent_choice():
 	paper_button.disabled = false
 	scissors_button.disabled = false
 
-	# Start the timer for the player to make a move (1.5 seconds)
-	timer_node.start(1.5)  
-	timer_label.text = "Time left: 1.5 seconds"
+	# Start the timer for the player to make a move (5 seconds)
+	remaining_time = 5  # Reset the timer to 5 seconds
+	timer_label.text = "Time left: " + str(remaining_time) + " seconds"
+	
+	if !timer_started:
+		timer_node.start(1.0)  # Start the timer if not already started
+		timer_started = true  # Mark the timer as started
 
 func _play_game(player_choice: String):
 	print("Player chose:", player_choice)  # Debugging
@@ -77,7 +80,7 @@ func _play_game(player_choice: String):
 
 	# Restart the game after a delay
 	await get_tree().create_timer(3.0).timeout
-	game_done = true;
+	game_done = true
 	gameDone.emit()
 	#reset_game()
 
@@ -123,45 +126,42 @@ func determine_winner(player_choice: String, opponent_choice: String) -> String:
 		# Tied: No win
 		$NoWinSfx.play()
 		return "It's a tie!"
-		#game_done = true
 	elif ((player_choice == "Rock" and opponent_choice == "Scissors") or
 		  (player_choice == "Scissors" and opponent_choice == "Paper") or
 		  (player_choice == "Paper" and opponent_choice == "Rock")):
 		# Win sound play
 		$WinSfx.play()
 		global.points += 1
-		#game_done = true
 		return "You Win!"
 	else:
 		# No Win sound play
 		$NoWinSfx.play()
 		global.lives -= 1
-		#game_done = true
 		return "You Lose!"
 
 # Timer timeout function
 func _on_timer_timeout() -> void:
-	print("Timer Timeout!")  # Debugging
-	if player_choice == "":
-		# Player didn't make a move in time
-		# Run out of time -> Looses
-		$NoWinSfx.play()
-		result_label.text = "You were too late!"
-		global.lives -= 1
-		await get_tree().create_timer(3.0).timeout  # Short delay before reset
-		#reset_game()
-		if game_done == false:
-			gameDone.emit()
-		
+	remaining_time -= 1  # Decrease the remaining time
+	timer_label.text = "Time left: " + str(remaining_time) + " seconds"
+
+	if remaining_time <= 0:
+		# Timeout, player didn't make a move in time
+		print("Timer Timeout!")  # Debugging
+		if player_choice == "":
+			$NoWinSfx.play()
+			result_label.text = "You were too late!"
+			global.lives -= 1
+			await get_tree().create_timer(3.0).timeout  # Short delay before reset
+
+			# Disable buttons to prevent any further input
+			rock_button.disabled = true
+			paper_button.disabled = true
+			scissors_button.disabled = true
+
+			if game_done == false:
+				gameDone.emit()
+
 		game_done = true
-		
 	else:
-		# The player made a move within the time limit
-		result_label.text = "You made your choice in time!"
-		await get_tree().create_timer(3.0).timeout
-		#reset_game()
-		if game_done == false:
-			gameDone.emit()
-		game_done = true
-		
-	
+		# Continue the countdown until the time is up
+		timer_node.start(1.0)  # Restart the timer for the next second

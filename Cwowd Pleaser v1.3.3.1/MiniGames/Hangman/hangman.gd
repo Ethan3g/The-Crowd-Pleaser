@@ -12,6 +12,8 @@ var hangman_sprite: Sprite2D
 var word_label: Label
 var incorrect_label: Label
 var attempts_label: Label
+var before_label: Label
+var word_list = ["HANGMAN", "LAUGH", "SMILE", "GAMING", "BOOOOOOOO", "STINTENDO"]
 
 # List of all letters (A to Z)
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
@@ -28,6 +30,10 @@ func _ready():
 	word_label = $WordLabel
 	incorrect_label = $IncorrectLabel
 	attempts_label = $AttemptsLabel
+	before_label = $BeforeLabel  # Ensure this label exists in your scene
+
+	# Ensure before_label is hidden at the start of the Hangman game
+	before_label.visible = false
 
 	# Load hangman images (from hangman_man0.png to hangman_man6.png)
 	for i in range(max_attempts + 1):  # Load 7 images (from 0 to 6)
@@ -35,18 +41,43 @@ func _ready():
 		hangman_images.append(texture)
 
 	# Start a new game
-	#generate_new_word()
+	generate_new_word()
 
-# Function to generate a new word for the game (simple example with fixed word)
+# Function to generate a new word for the game
 func generate_new_word():
-	current_word = "HANGMAN"
+	current_word = word_list[randi() % word_list.size()]  # Pick a random word
 	guessed_letters = []
 	incorrect_letters = []
 	incorrect_guesses = 0
+
+	reveal_starting_letters()  # Reveal 1-2 letters at the start
+
 	update_word_display()
 	update_incorrect_label()
 	update_attempts_label()
 	update_hangman_sprite()
+
+	# Show the message at the start of the game
+	before_label.text = "Use the keyboard to play!"
+	before_label.visible = true  # Make sure the label shows
+
+	# Start a 5 second timer before hiding the label (using await)
+	await get_tree().create_timer(5.0).timeout  # Wait for 5 seconds
+	before_label.visible = false  # Hide after 5 seconds
+
+# Function to reveal 1-2 random letters at the start
+func reveal_starting_letters():
+	var letters_to_reveal = randi() % 2 + 1  # Choose 1 or 2 letters
+	var unique_letters = Array(current_word.split(""))  # Convert to standard Array
+	
+	# Remove duplicates and already guessed letters
+	unique_letters = unique_letters.filter(func(l): return l not in guessed_letters and l != " ")  # Avoid duplicates
+
+	while letters_to_reveal > 0 and unique_letters.size() > 0:
+		var random_letter = unique_letters.pick_random()
+		guessed_letters.append(random_letter)
+		unique_letters.erase(random_letter)  # Ensure no duplicate reveals
+		letters_to_reveal -= 1
 
 # Function to update the word display (with blanks for unguessed letters)
 func update_word_display():
@@ -103,7 +134,6 @@ func check_win_condition():
 	global.points += 1
 	
 	await get_tree().create_timer(3.0).timeout
-	print("Fin Fin")
 	gameDone.emit()
 
 # Function to check if the game is over
@@ -120,16 +150,16 @@ func check_game_over():
 # Function to disable all buttons after the game ends
 func disable_buttons():
 	fin = true;
-	# From when buttons were involved IGNORE
-	#for button in letters_panel.get_children():
-		#button.disabled = true
 
 # Input handling (detecting keyboard input)
 func _input(event):
-	if fin == true:
+	if fin:
 		return
 	
 	if event is InputEventKey and event.pressed:
+		# Hide the 'before_label' after a key is pressed
+		before_label.visible = false
+
 		# Get the character of the pressed key and convert it to uppercase
 		var letter = event.as_text().to_upper()
 
