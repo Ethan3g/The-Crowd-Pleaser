@@ -603,6 +603,7 @@ script = ExtResource("4_kaaop")
 
 [node name="deadDragon" type="TextureRect" parent="BenderDragon/Item2"]
 visible = false
+layout_mode = 0
 offset_left = -419.528
 offset_top = -587.0
 offset_right = 851.472
