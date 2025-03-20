@@ -1,11 +1,3 @@
 res://Scenes/bender_dragon.tscn
-<<<<<<< HEAD
-res://MiniGames/Tomato/TomSpawner/bullet_spawner.tscn
-res://MiniGames/Tomato/tomato_game.tscn
-res://MiniGames/Wack/node_2d.tscn
-res://MiniGames/Wack/WackArt/WackActive.tres
 res://MiniGames/Wack/WackArt/WackHit.tres
-res://MiniGames/Wack/WackArt/WackIdle.tres
-=======
-res://MiniGames/Hangman/hangman.tscn
->>>>>>> ddc594d6ab1ed230bb497bab8fe0d6ecb0e677a8
+res://Scripts/stage.gd

@@ -15,6 +15,7 @@ var bendGoing = false;
 var lives_Label: Label
 var points_Label: Label
 var timer_Label: Label
+var random = 1
 
 # Go through each, trigger a minigame at each number
 # 1 = RPS
@@ -40,6 +41,7 @@ var progress_vals = [0, 0, 0, 0, 0]
 @onready var neu_texture = load("res://Stage Assets/Yellow.tres")
 @onready var point_texture = load("res://Stage Assets/Green.tres")
 @onready var lost_texture = load("res://Stage Assets/Red.tres")
+@onready var rng = RandomNumberGenerator.new()
 
 @onready var LS0 = $Lights/Light0
 @onready var LS1 = $Lights/Light1
@@ -73,7 +75,7 @@ func _process(delta: float) -> void:
 	BenderDragonTimer()
 	lives_Label.text = "Lives: " + str(global.lives)
 	points_Label.text = "Points: " + str(global.points)
-	
+	randomizer()
 	timer_Label.text = "Time: " + str(ceil(timer_node.time_left))
 
 func _input(_ev):
@@ -82,8 +84,9 @@ func _input(_ev):
 		BenderDragonStart()
 	
 	# Start time -> Start the games
-	if Input.is_key_pressed(KEY_0):
+	if Input.is_key_pressed(KEY_K):
 		stage_GO()
+		$"Start Text".hide()
 		
 	if Input.is_key_pressed(KEY_1):
 		RpsStart()
@@ -116,10 +119,7 @@ func stage_GO() -> void:
 	
 # When timer runs out, depending on the current minigame, next one is started
 func _on_timer_timeout() -> void:
-	current_minig = current_minig + 1;
-	
-	if current_minig > minigame_amt:
-		print("No more Minigames")
+	current_minig = random
 		
 	if current_minig == 1:
 		RpsStart()
@@ -229,6 +229,9 @@ func _on_TomEnd():
 	await get_tree().create_timer(3.0).timeout
 	TOMnode.visible = false;
 	update_lights()
+
+func randomizer() -> void:
+	random = rng.randi_range(1, 5)
 
 #Update progression lights
 func update_lights() -> void:
