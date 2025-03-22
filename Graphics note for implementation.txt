@@ -1,0 +1,12 @@
+﻿Graphics note for implementation
+
+
+* For the RPS Minigame the background is already present in the files
+* Do not show the opponent’s choice until the player choses
+* Somehow show the title of the minigame before or during gameplay
+
+
+* Show the title for all minigames for clarity
+
+
+* The sprites for the Ender Dragon and Tomato Dodge are in the items sprite sheet
