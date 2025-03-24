@@ -53,8 +53,8 @@ vertical_alignment = 1
 
 [node name="HangManSprite" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(381.5, 469.5)
-scale = Vector2(10.4595, 10.1429)
+position = Vector2(381, 470)
+scale = Vector2(10, 10)
 texture = ExtResource("3_fg8ii")
 
 [node name="MessageLabel" type="Label" parent="."]
@@ -100,19 +100,20 @@ theme_override_font_sizes/font_size = 80
 [node name="hangbackground" type="Sprite2D" parent="."]
 visible = false
 z_index = -1
-position = Vector2(-183, 847)
-scale = Vector2(10.005, 10.005)
+position = Vector2(798, 516)
+scale = Vector2(10, 10)
 texture = ExtResource("8_3622x")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 154.0
-offset_top = 143.0
-offset_right = 1440.0
-offset_bottom = 886.0
+offset_left = 156.0
+offset_top = 145.0
+offset_right = 284.0
+offset_bottom = 219.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(10, 10)
 texture = ExtResource("8_3622x")
 stretch_mode = 5
