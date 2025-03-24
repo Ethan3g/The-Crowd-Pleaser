@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://jy6h23w41vj3"]
-
-[ext_resource type="Texture2D" uid="uid://bxlfrr5qovgbi" path="res://Menu/QuitButton_Update.png" id="1_geojk"]
-
-[resource]
-atlas = ExtResource("1_geojk")
-region = Rect2(0, 0, 28, 15)

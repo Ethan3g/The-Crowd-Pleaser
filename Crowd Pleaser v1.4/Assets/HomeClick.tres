@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://du08q1pjwmkt"]
-
-[ext_resource type="Texture2D" uid="uid://cimjc6s7y4rce" path="res://Menu/Stage_buttons-16x16.png" id="1_waxdj"]
-
-[resource]
-atlas = ExtResource("1_waxdj")
-region = Rect2(34, 18, 12, 12)

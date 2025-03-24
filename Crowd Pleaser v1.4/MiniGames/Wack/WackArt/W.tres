@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bjetkhfcjwqc"]
-
-[ext_resource type="Texture2D" uid="uid://dkxtru43qih23" path="res://MiniGames/Wack/WackArt/Wack-letter.png" id="1_76dt4"]
-
-[resource]
-atlas = ExtResource("1_76dt4")
-region = Rect2(120, 72, 30, 24)
