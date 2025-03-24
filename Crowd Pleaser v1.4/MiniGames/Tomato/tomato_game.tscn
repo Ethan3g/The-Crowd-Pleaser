@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6qeyf2r0m17i"]
 
-[ext_resource type="Script" path="res://MiniGames/Tomato/tomato_game.gd" id="1_70y2u"]
+[ext_resource type="Script" uid="uid://buwhl7osubf2i" path="res://MiniGames/Tomato/tomato_game.gd" id="1_70y2u"]
 [ext_resource type="PackedScene" uid="uid://3bed30hd5xan" path="res://MiniGames/Tomato/TomSpawner/bullet_spawner.tscn" id="1_o73qf"]
 [ext_resource type="PackedScene" uid="uid://yk53844viyr2" path="res://MiniGames/Tomato/DodgeTomato/dodge_tomato.tscn" id="2_5lwwx"]
 [ext_resource type="Texture2D" uid="uid://bmc5074af1xe8" path="res://MiniGames/RPS/RPSart/dodgefruit_minigame.PNG" id="2_123mh"]
