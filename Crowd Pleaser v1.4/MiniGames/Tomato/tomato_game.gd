@@ -22,6 +22,7 @@ func _on_player_topdown_been_hit() -> void:
 	$LooseSfx.play()
 	$GameTimer.stop()
 	global.lives -= 1
+	global.win = -1
 	
 	# Signal here (In Stage, have the delay so that  bullets stop...)
 	gameDone.emit()
@@ -33,5 +34,6 @@ func _on_timer_timeout() -> void:
 	$WinSfx.play()
 	$GameTimer.stop()
 	global.points += 1
+	global.win = 1
 	gameDone.emit()
 	#win the game

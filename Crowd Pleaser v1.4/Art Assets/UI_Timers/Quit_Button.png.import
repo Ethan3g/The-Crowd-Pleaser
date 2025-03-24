@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://dua3sw7rl3l5e"
+=======
 uid="uid://b6tv6p6jpn740"
+>>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
 path="res://.godot/imported/Quit_Button.png-92a641208e9de18366f1005e3f96d985.ctex"
 metadata={
 "vram_texture": false

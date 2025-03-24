@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://b1miln5q3680g"
+=======
 uid="uid://bh4xqx71c7b0u"
+>>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
 path="res://.godot/imported/Wack-letter_resize.png-6d9e04332b249237fd659b24737675dc.ctex"
 metadata={
 "vram_texture": false
