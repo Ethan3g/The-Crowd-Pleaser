@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://cjvnpweprxh8n"
+=======
+uid="uid://dijwku743duv"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Wack-letter.png-7a9e592a9516d36835ac1b7ed79fc346.ctex"
 metadata={
 "vram_texture": false

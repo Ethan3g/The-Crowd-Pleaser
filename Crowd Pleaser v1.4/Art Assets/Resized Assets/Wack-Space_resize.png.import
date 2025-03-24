@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://cxg2lfkwvdqep"
+=======
+uid="uid://dxs7s7pc2ndd7"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Wack-Space_resize.png-1f16188976d1abcdd7530b3a4b6cf7ed.ctex"
 metadata={
 "vram_texture": false

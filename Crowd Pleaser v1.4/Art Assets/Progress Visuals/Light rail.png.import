@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://kh5hpx6f7j2e"
+=======
+uid="uid://c5t0r2p6cigg1"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Light rail.png-e44a1c7757a37cfd8080c1a7bdac4c39.ctex"
 metadata={
 "vram_texture": false

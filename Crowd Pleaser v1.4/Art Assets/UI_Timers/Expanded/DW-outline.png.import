@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://ddflsfpfxe0ga"
+=======
+uid="uid://bebk7a6flojsu"
+>>>>>>> Stashed changes
 path="res://.godot/imported/DW-outline.png-b0548da856c9d9e4ec55f84484a0ee18.ctex"
 metadata={
 "vram_texture": false

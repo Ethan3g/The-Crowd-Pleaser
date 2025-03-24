@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://bw0bpmcpf322h"
+=======
+uid="uid://cndm41hgjuef4"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Key+Click 16x16.png-5a105c99b7cbc517f72567eed4474ac8.ctex"
 metadata={
 "vram_texture": false

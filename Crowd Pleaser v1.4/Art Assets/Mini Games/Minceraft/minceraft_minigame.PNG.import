@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://cuqsnfr58qvmj"
+=======
+uid="uid://bcg4pb0hf7is5"
+>>>>>>> Stashed changes
 path="res://.godot/imported/minceraft_minigame.PNG-89ae373084ad18062088530215abbdf1.ctex"
 metadata={
 "vram_texture": false

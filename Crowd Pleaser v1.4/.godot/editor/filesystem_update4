@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 res://Scenes/bender_dragon.tscn
 res://MiniGames/Wack/WackArt/WackHit.tres
 <<<<<<< HEAD
@@ -11,6 +12,8 @@ res://Scripts/wrongitem.gd
 res://MiniGames/RPS/game_logic.gd
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 res://MiniGames/Hangman/hangman.tscn
 res://MiniGames/RPS/game.tscn
 res://MiniGames/Tomato/DodgeTomato/dodge_tomato.tscn
@@ -21,8 +24,12 @@ res://MiniGames/Wack/node_2d.tscn
 res://Scenes/bender_dragon.tscn
 res://Scenes/menu.tscn
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 >>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
+=======
+res://MiniGames/Wack/WackArt/WackHit.tres
+>>>>>>> Stashed changes
 =======
 res://MiniGames/Wack/WackArt/WackHit.tres
 >>>>>>> Stashed changes

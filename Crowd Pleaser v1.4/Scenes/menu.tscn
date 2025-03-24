@@ -1,6 +1,10 @@
 [gd_scene load_steps=25 format=3 uid="uid://cdwsgkhmhdmr7"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://d3tsxfgc8wudv" path="res://Scenes/menu.gd" id="1_bnmbb"]
+=======
+[ext_resource type="Script" uid="uid://xn3cqogo0ihe" path="res://Scenes/menu.gd" id="1_bnmbb"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://pw7pyhimcd3o" path="res://Menu/Main Menu BG.png" id="2_00436"]
 [ext_resource type="Texture2D" uid="uid://kpefu3u8rdlj" path="res://Menu/crowd_title.png" id="3_f4oo3"]
 [ext_resource type="Texture2D" uid="uid://6hsli6d8xt11" path="res://Menu/StartIdle.tres" id="3_jql0j"]

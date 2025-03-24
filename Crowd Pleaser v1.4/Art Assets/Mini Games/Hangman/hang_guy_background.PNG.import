@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://38vqp1wrj8sf"
+=======
+uid="uid://dgw7d04swsf3g"
+>>>>>>> Stashed changes
 path="res://.godot/imported/hang_guy_background.PNG-67ab0b1c57abb03fc6bc1cc8effd96cc.ctex"
 metadata={
 "vram_texture": false

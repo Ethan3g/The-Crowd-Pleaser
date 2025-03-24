@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://3yyndmxwqu36"
+=======
+uid="uid://dpv78bpdbke0t"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Hangman_man.png-12e6af5854498dbd3a077c2a026228bd.ctex"
 metadata={
 "vram_texture": false

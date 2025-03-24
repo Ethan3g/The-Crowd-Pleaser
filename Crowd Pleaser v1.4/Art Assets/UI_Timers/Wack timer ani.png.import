@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://ddjf8axikdhdg"
+=======
+uid="uid://jxvwejjkys3c"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Wack timer ani.png-9b0b30dd0c64475743ec02f7aafd5993.ctex"
 metadata={
 "vram_texture": false
