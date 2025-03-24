@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6qeyf2r0m17i"]
+
+[ext_resource type="Script" path="res://tomato_game/tomato_game.gd" id="1_70y2u"]
+[ext_resource type="PackedScene" uid="uid://3bed30hd5xan" path="res://tomato_game/tomato_spawner/bullet_spawner.tscn" id="1_o73qf"]
+[ext_resource type="PackedScene" uid="uid://yk53844viyr2" path="res://tomato_game/dodges_tomatoes/dodge_tomato.tscn" id="2_5lwwx"]
+
+[node name="TomatoGame" type="Node2D"]
+script = ExtResource("1_70y2u")
+
+[node name="BulletSpawner" parent="." instance=ExtResource("1_o73qf")]
+position = Vector2(579, -51)
+
+[node name="BulletSpawner2" parent="." instance=ExtResource("1_o73qf")]
+position = Vector2(571, 695)
+
+[node name="player_topdown" parent="." instance=ExtResource("2_5lwwx")]
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 8.0
+
+[connection signal="been_hit" from="player_topdown" to="." method="_on_player_topdown_been_hit"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_timer_timeout"]
