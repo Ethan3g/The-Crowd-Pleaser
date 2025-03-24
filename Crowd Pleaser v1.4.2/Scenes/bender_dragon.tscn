@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://3dhme6ybutgj"]
+[gd_scene load_steps=123 format=3 uid="uid://3dhme6ybutgj"]
 
 [ext_resource type="Script" uid="uid://csmrxundg4b1f" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://b6e5pkvopqhwa" path="res://Scripts/rightitem.gd" id="4_kaaop"]
 [ext_resource type="Texture2D" uid="uid://bvvnsjv171h8s" path="res://Stage Assets/Green.tres" id="5_kq5jr"]
 [ext_resource type="Texture2D" uid="uid://cukqyid82ff14" path="res://Assets/DragonWin.PNG" id="5_xcf6w"]
-[ext_resource type="Texture2D" uid="uid://dm8w0fl55ud16" path="res://Assets/stage.PNG" id="6_eb2dc"]
 [ext_resource type="Texture2D" uid="uid://rwhfkmqj3g6x" path="res://Stage Assets/Red.tres" id="6_exh6k"]
 [ext_resource type="Texture2D" uid="uid://dqk2wsq5wx3sw" path="res://Stage Assets/Yellow.tres" id="7_bwar3"]
 [ext_resource type="Texture2D" uid="uid://dd4vlca3k600v" path="res://Assets/bow.tres" id="7_jwr2b"]
@@ -50,15 +49,17 @@
 [ext_resource type="Texture2D" uid="uid://b5qp0y11hh5j2" path="res://Assets/comedian.PNG" id="20_tgndy"]
 [ext_resource type="Texture2D" uid="uid://ce02uaqcv5xgn" path="res://Assets/guy2.tres" id="21_6l1kp"]
 [ext_resource type="Texture2D" uid="uid://d3150uyc8ufov" path="res://Stage Assets/Light rail.png" id="33_wbmb1"]
+[ext_resource type="Texture2D" uid="uid://dnk5rcdpapdi2" path="res://Art Assets/Backgrounds/Stage/stage.PNG" id="35_ba0qs"]
+[ext_resource type="Texture2D" uid="uid://cbyhmwu2d8k7f" path="res://Art Assets/Characters/NPCs/npcs.PNG" id="36_1ydbe"]
 [ext_resource type="Texture2D" uid="uid://isovotrrybdw" path="res://Stage Assets/MainTimer_Empty.png" id="36_fmdrf"]
-[ext_resource type="Texture2D" uid="uid://dkyh6b51j6e0n" path="res://Assets/npcs.PNG" id="36_xcq3k"]
 [ext_resource type="Texture2D" uid="uid://bwtbl44bkyi4o" path="res://Assets/mic.PNG" id="37_2cufp"]
+[ext_resource type="Texture2D" uid="uid://d3myks0snybvf" path="res://Art Assets/Backgrounds/Stage/seats.PNG" id="37_ba0qs"]
+[ext_resource type="Texture2D" uid="uid://0ka7v7gbp15o" path="res://Art Assets/Characters/Protagonist/comedian.PNG" id="38_1ydbe"]
 [ext_resource type="Texture2D" uid="uid://1rv8ohbffshe" path="res://Assets/HomeIdle.tres" id="41_arhhx"]
 [ext_resource type="Texture2D" uid="uid://du08q1pjwmkt" path="res://Assets/HomeClick.tres" id="42_8tvr3"]
 [ext_resource type="Texture2D" uid="uid://bvxvclss1scs6" path="res://Assets/HomeHov.tres" id="43_gdfwc"]
 [ext_resource type="Texture2D" uid="uid://cn27tg2vg6ohv" path="res://Assets/NoMuteIdle.tres" id="44_3hy1l"]
 [ext_resource type="Texture2D" uid="uid://dtfmvuik2i5q8" path="res://Assets/NoMuteHov.tres" id="45_0exir"]
-[ext_resource type="Texture2D" uid="uid://b5770pfehnqkm" path="res://Assets/seats.PNG" id="52_mrfc8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wbb4"]
 atlas = ExtResource("9_pkfj5")
@@ -432,60 +433,15 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_xcq3k"]
 font_size = 60
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ftjks"]
-atlas = ExtResource("36_xcq3k")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_81sya"]
+atlas = ExtResource("36_1ydbe")
+region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_f6je8"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_101lo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ftjks")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8byp"]
-atlas = ExtResource("36_xcq3k")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sksma"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g8byp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cjq65"]
-atlas = ExtResource("36_xcq3k")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ba0qs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cjq65")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ydbe"]
-atlas = ExtResource("36_xcq3k")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_81sya"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ydbe")
+"texture": SubResource("AtlasTexture_81sya")
 }],
 "loop": true,
 "name": &"default",
@@ -493,10 +449,10 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_se7ag"]
-atlas = ExtResource("36_xcq3k")
-region = Rect2(48, 16, 16, 16)
+atlas = ExtResource("36_1ydbe")
+region = Rect2(64, 16, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_101lo"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8yf4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -507,11 +463,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_do7gp"]
-atlas = ExtResource("36_xcq3k")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_101lo"]
+atlas = ExtResource("36_1ydbe")
+region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_p8yf4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ba0qs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_101lo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do7gp"]
+atlas = ExtResource("36_1ydbe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sksma"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -522,15 +493,60 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2cufp"]
-atlas = ExtResource("20_tgndy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8yf4"]
+atlas = ExtResource("36_1ydbe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3sj4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8yf4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hbbn"]
+atlas = ExtResource("36_1ydbe")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6je8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hbbn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rh5o"]
+atlas = ExtResource("36_1ydbe")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81sya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rh5o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba0qs"]
+atlas = ExtResource("38_1ydbe")
 region = Rect2(48, 112, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xcq3k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2cufp")
+"texture": SubResource("AtlasTexture_ba0qs")
 }],
 "loop": true,
 "name": &"default",
@@ -695,7 +711,7 @@ sprite_frames = SubResource("SpriteFrames_rq2xo")
 [node name="Stage" type="Sprite2D" parent="."]
 position = Vector2(800, 500)
 scale = Vector2(10, 10)
-texture = ExtResource("6_eb2dc")
+texture = ExtResource("35_ba0qs")
 
 [node name="Start Text" type="Label" parent="."]
 anchors_preset = 8
@@ -718,46 +734,44 @@ vertical_alignment = 1
 position = Vector2(800, 500)
 scale = Vector2(10, 10)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs"]
-position = Vector2(-72, 42)
-sprite_frames = SubResource("SpriteFrames_f6je8")
+[node name="NPC1" type="AnimatedSprite2D" parent="NPCs"]
+position = Vector2(-54, 42)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_101lo")
 
-[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="NPCs"]
+[node name="NPC2" type="AnimatedSprite2D" parent="NPCs"]
+position = Vector2(-36, 42)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_p8yf4")
+
+[node name="NPC3" type="AnimatedSprite2D" parent="NPCs"]
+position = Vector2(-18, 42)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_ba0qs")
+
+[node name="NPC4" type="AnimatedSprite2D" parent="NPCs"]
+position = Vector2(0, 42)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_sksma")
+
+[node name="NPC5" type="AnimatedSprite2D" parent="NPCs"]
+position = Vector2(18, 42)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_r3sj4")
+
+[node name="NPC6" type="AnimatedSprite2D" parent="NPCs"]
 position = Vector2(36, 42)
 sprite_frames = SubResource("SpriteFrames_f6je8")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="NPCs"]
-position = Vector2(0, 42)
-sprite_frames = SubResource("SpriteFrames_sksma")
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="NPCs"]
-position = Vector2(-18, 42)
-sprite_frames = SubResource("SpriteFrames_ba0qs")
-
-[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="NPCs"]
-position = Vector2(72, 42)
-sprite_frames = SubResource("SpriteFrames_ba0qs")
-
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="NPCs"]
+[node name="NPC7" type="AnimatedSprite2D" parent="NPCs"]
 position = Vector2(54, 42)
+scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_81sya")
-
-[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="NPCs"]
-position = Vector2(-54, 42)
-sprite_frames = SubResource("SpriteFrames_101lo")
-
-[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="NPCs"]
-position = Vector2(-36, 42)
-sprite_frames = SubResource("SpriteFrames_p8yf4")
-
-[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="NPCs"]
-position = Vector2(18, 42)
-sprite_frames = SubResource("SpriteFrames_p8yf4")
 
 [node name="Seats" type="Sprite2D" parent="."]
 position = Vector2(800, 500)
 scale = Vector2(10, 10)
-texture = ExtResource("52_mrfc8")
+texture = ExtResource("37_ba0qs")
 
 [node name="Comedian" type="Sprite2D" parent="."]
 position = Vector2(800, 500)
