@@ -16,6 +16,7 @@ var lives_Label: Label
 var points_Label: Label
 var timer_Label: Label
 var random = 1
+var stored = 0
 
 # Go through each, trigger a minigame at each number
 # 1 = RPS
@@ -232,6 +233,12 @@ func _on_TomEnd():
 
 func randomizer() -> void:
 	random = rng.randi_range(1, 5)
+	if random == stored:
+		if random == 5:
+			random -= 1
+		else:
+			random += 1
+	stored = random
 
 #Update progression lights
 func update_lights() -> void:
