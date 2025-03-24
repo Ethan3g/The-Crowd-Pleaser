@@ -11,4 +11,5 @@ func _pressed() -> void:
 	$"../Item3".disabled = true;
 	global.done = true;
 	global.lives -= 1;
+	global.win = -1
 	print(global.lives);

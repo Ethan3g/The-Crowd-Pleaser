@@ -132,11 +132,13 @@ func determine_winner(player_choice: String, opponent_choice: String) -> String:
 		# Win sound play
 		$WinSfx.play()
 		global.points += 1
+		global.win = 1
 		return "You Win!"
 	else:
 		# No Win sound play
 		$NoWinSfx.play()
 		global.lives -= 1
+		global.win = -1
 		return "You Lose!"
 
 # Timer timeout function

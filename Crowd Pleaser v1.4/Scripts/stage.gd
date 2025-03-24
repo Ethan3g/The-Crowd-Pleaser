@@ -192,6 +192,7 @@ func HangStart() -> void:
 
 func HangEnd() -> void:
 	$Hangman.visible = false;
+	update_lights()
 	
 func _on_HangEnd():
 	$Hangman.visible = false;
@@ -242,11 +243,11 @@ func randomizer() -> void:
 
 #Update progression lights
 func update_lights() -> void:
-	var current_light = current_minig - 1;
+	var current_light = global.prog
 	
 	# Probably easier way to do this, but I am severly sleep deprived
 
-	progress_vals[current_light] = 1;
+	progress_vals[current_light] = global.win;
 
 	#var LS0 = $Node2D/Light0
 	#var LS1 = $Node2D/Light1
@@ -291,6 +292,7 @@ func update_lights() -> void:
 	elif progress_vals[4] == -1:
 		LS4.texture = lost_texture
 	
+	global.prog += 1
 
 
 func _on_return_main_pressed() -> void:
