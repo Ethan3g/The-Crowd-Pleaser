@@ -1,0 +1,7 @@
+
+Lights: The actual spotlights [all three states on the same sheet (spliced in Unity sprite editor), each is 11 pixel wide by 17 pixels tall]
+
+Light Rail: The banister the lights will be on [separated from the lights so lights can be arranged as needed, 101 pixels wide by 13 pixel tall]
+
+Together, 22 pixels tall. Top of Lights is one pixel down from the top of the Light Rail
+Light Rail is in the middle of the stage, 6 pixels apart from the curtains.
