@@ -288,6 +288,8 @@ func update_lights() -> void:
 
 func _on_return_main_pressed() -> void:
 	print("Menu")
+	global.points = 0
+	global.lives = 5
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
 

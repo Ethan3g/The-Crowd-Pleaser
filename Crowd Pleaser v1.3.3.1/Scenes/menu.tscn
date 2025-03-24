@@ -158,6 +158,7 @@ scale = Vector2(0.625, 0.625)
 texture = ExtResource("15_dgj8l")
 
 [node name="ReturnButton" type="TextureButton" parent="Credits"]
+layout_mode = 0
 offset_left = 1430.0
 offset_top = 40.0
 offset_right = 1445.0
