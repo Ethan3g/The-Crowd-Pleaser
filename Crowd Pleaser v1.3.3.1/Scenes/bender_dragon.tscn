@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://3dhme6ybutgj"]
+[gd_scene load_steps=120 format=3 uid="uid://3dhme6ybutgj"]
 
 [ext_resource type="Script" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
@@ -53,6 +53,11 @@
 [ext_resource type="Texture2D" uid="uid://isovotrrybdw" path="res://Stage Assets/MainTimer_Empty.png" id="36_fmdrf"]
 [ext_resource type="Texture2D" uid="uid://dkyh6b51j6e0n" path="res://Assets/npcs.PNG" id="36_xcq3k"]
 [ext_resource type="Texture2D" uid="uid://bwtbl44bkyi4o" path="res://Assets/mic.PNG" id="37_2cufp"]
+[ext_resource type="Texture2D" uid="uid://1rv8ohbffshe" path="res://Assets/HomeIdle.tres" id="41_arhhx"]
+[ext_resource type="Texture2D" uid="uid://du08q1pjwmkt" path="res://Assets/HomeClick.tres" id="42_8tvr3"]
+[ext_resource type="Texture2D" uid="uid://bvxvclss1scs6" path="res://Assets/HomeHov.tres" id="43_gdfwc"]
+[ext_resource type="Texture2D" uid="uid://cn27tg2vg6ohv" path="res://Assets/NoMuteIdle.tres" id="44_3hy1l"]
+[ext_resource type="Texture2D" uid="uid://dtfmvuik2i5q8" path="res://Assets/NoMuteHov.tres" id="45_0exir"]
 [ext_resource type="Texture2D" uid="uid://b5770pfehnqkm" path="res://Assets/seats.PNG" id="52_mrfc8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wbb4"]
@@ -829,6 +834,29 @@ offset_right = 730.0
 offset_bottom = 185.667
 texture = ExtResource("7_bwar3")
 
+[node name="Buttons STAGE" type="Node2D" parent="."]
+position = Vector2(800, 500)
+scale = Vector2(10, 10)
+
+[node name="ReturnMain" type="TextureButton" parent="Buttons STAGE"]
+offset_left = 65.5
+offset_top = 35.0
+offset_right = 77.5
+offset_bottom = 47.0
+texture_normal = ExtResource("41_arhhx")
+texture_pressed = ExtResource("42_8tvr3")
+texture_hover = ExtResource("43_gdfwc")
+stretch_mode = 3
+
+[node name="Mute" type="TextureButton" parent="Buttons STAGE"]
+offset_left = 65.5
+offset_top = 20.0
+offset_right = 77.5
+offset_bottom = 32.0
+texture_normal = ExtResource("44_3hy1l")
+texture_hover = ExtResource("45_0exir")
+stretch_mode = 3
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
@@ -963,6 +991,8 @@ label_settings = SubResource("LabelSettings_5jpcn")
 wait_time = 5.0
 one_shot = true
 
+[connection signal="pressed" from="Buttons STAGE/ReturnMain" to="." method="_on_return_main_pressed"]
+[connection signal="pressed" from="Buttons STAGE/Mute" to="." method="_on_mute_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/RockButton" to="Control" method="_on_rock_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/PaperButton" to="Control" method="_on_paper_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/ScissorsButton" to="Control" method="_on_scissors_button_pressed"]

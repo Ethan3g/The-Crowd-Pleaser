@@ -284,3 +284,14 @@ func update_lights() -> void:
 	elif progress_vals[4] == -1:
 		LS4.texture = lost_texture
 	
+
+
+func _on_return_main_pressed() -> void:
+	print("Menu")
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	
+
+
+# Will be implemented with sound (unsure if seperate sound music controller script...
+func _on_mute_pressed() -> void:
+	pass # Replace with function body.

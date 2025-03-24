@@ -1,3 +1,6 @@
-res://Scenes/bender_dragon.tscn
 res://MiniGames/Wack/WackArt/WackHit.tres
+res://Scenes/menu.gd
+res://Scenes/menu.tscn
+res://Scenes/bender_dragon.tscn
 res://MiniGames/Hangman/hangman.tscn
+res://Scripts/stage.gd
