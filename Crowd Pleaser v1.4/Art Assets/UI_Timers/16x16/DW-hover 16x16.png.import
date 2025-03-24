@@ -2,11 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 uid="uid://rwt4034pqpos"
 =======
 uid="uid://drjhl4854ey84"
 >>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
+=======
+uid="uid://drjhl4854ey84"
+>>>>>>> Stashed changes
 path="res://.godot/imported/DW-hover 16x16.png-c857d63efc310fd3b2e6a639efb8e62b.ctex"
 metadata={
 "vram_texture": false

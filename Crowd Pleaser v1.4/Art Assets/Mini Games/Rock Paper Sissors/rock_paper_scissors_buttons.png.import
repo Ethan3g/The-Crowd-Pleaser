@@ -2,11 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 uid="uid://cknpyaeday3si"
 =======
 uid="uid://c60kr5o3gyl63"
 >>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
+=======
+uid="uid://c60kr5o3gyl63"
+>>>>>>> Stashed changes
 path="res://.godot/imported/rock_paper_scissors_buttons.png-21ef8b18ba98068d38347dd496f734eb.ctex"
 metadata={
 "vram_texture": false

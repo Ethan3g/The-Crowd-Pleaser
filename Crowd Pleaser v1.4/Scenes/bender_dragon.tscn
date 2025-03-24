@@ -735,14 +735,26 @@ scale = Vector2(10, 10)
 
 [node name="NPC1" type="AnimatedSprite2D" parent="NPCs"]
 position = Vector2(-54, 42)
+<<<<<<< Updated upstream
+=======
+scale = Vector2(1, 1)
+>>>>>>> Stashed changes
 sprite_frames = SubResource("SpriteFrames_101lo")
 
 [node name="NPC2" type="AnimatedSprite2D" parent="NPCs"]
 position = Vector2(-36, 42)
+<<<<<<< Updated upstream
+=======
+scale = Vector2(1, 1)
+>>>>>>> Stashed changes
 sprite_frames = SubResource("SpriteFrames_p8yf4")
 
 [node name="NPC3" type="AnimatedSprite2D" parent="NPCs"]
 position = Vector2(-18, 42)
+<<<<<<< Updated upstream
+=======
+scale = Vector2(1, 1)
+>>>>>>> Stashed changes
 sprite_frames = SubResource("SpriteFrames_ba0qs")
 
 [node name="NPC4" type="AnimatedSprite2D" parent="NPCs"]
@@ -751,10 +763,18 @@ sprite_frames = SubResource("SpriteFrames_sksma")
 
 [node name="NPC5" type="AnimatedSprite2D" parent="NPCs"]
 position = Vector2(18, 42)
+<<<<<<< Updated upstream
+=======
+scale = Vector2(1, 1)
+>>>>>>> Stashed changes
 sprite_frames = SubResource("SpriteFrames_r3sj4")
 
 [node name="NPC6" type="AnimatedSprite2D" parent="NPCs"]
 position = Vector2(36, 42)
+<<<<<<< Updated upstream
+=======
+scale = Vector2(1, 1)
+>>>>>>> Stashed changes
 sprite_frames = SubResource("SpriteFrames_8rh5o")
 
 [node name="NPC7" type="AnimatedSprite2D" parent="NPCs"]

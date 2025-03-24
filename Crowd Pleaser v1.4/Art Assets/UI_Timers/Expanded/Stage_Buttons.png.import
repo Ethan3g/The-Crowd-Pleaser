@@ -2,11 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 uid="uid://bdx43vel4pr1y"
 =======
 uid="uid://usbgq5qpgkg0"
 >>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
+=======
+uid="uid://usbgq5qpgkg0"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Stage_Buttons.png-0d0628fb32ebaf29b1409d17b7b2e07c.ctex"
 metadata={
 "vram_texture": false
