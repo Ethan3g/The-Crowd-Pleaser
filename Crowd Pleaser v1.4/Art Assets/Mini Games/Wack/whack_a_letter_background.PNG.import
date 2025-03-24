@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://6h7v3tr8ghy5"
+=======
+uid="uid://b60wod1wpll4q"
+>>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
 path="res://.godot/imported/whack_a_letter_background.PNG-fe58f5d60ede749b32ef11ec8970abcb.ctex"
 metadata={
 "vram_texture": false

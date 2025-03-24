@@ -1,5 +1,6 @@
 res://Scenes/bender_dragon.tscn
 res://MiniGames/Wack/WackArt/WackHit.tres
+<<<<<<< HEAD
 res://Scripts/global.gd
 res://Scripts/stage.gd
 res://MiniGames/Hangman/hangman.gd
@@ -9,3 +10,5 @@ res://Scripts/wrongitem.gd
 res://MiniGames/RPS/game_logic.gd
 res://MiniGames/Hangman/hangman.tscn
 res://Scenes/menu.tscn
+=======
+>>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849

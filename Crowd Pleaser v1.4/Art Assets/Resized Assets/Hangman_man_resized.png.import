@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://g0aee653rqyi"
+=======
+uid="uid://brm02p70tj055"
+>>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
 path="res://.godot/imported/Hangman_man_resized.png-f0b9afaef6117f4bba37a459b5937026.ctex"
 metadata={
 "vram_texture": false

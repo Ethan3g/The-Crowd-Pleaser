@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://i38d1n75mxi3"
+=======
+uid="uid://csd611uggaqao"
+>>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
 path="res://.godot/imported/MainTimer_Empty.png-7b2c21fe89e6fad3b81885cad37fec7b.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://jmu1i7yq2kr1"
+=======
+uid="uid://crm2u2s4q4qbl"
+>>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
 path="res://.godot/imported/Key+Click.png-f12dfb4430faa81a5b86c2e6ad0c5cf7.ctex"
 metadata={
 "vram_texture": false

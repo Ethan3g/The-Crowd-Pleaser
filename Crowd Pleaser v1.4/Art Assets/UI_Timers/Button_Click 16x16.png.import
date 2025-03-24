@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://x8kvifqrrxfb"
+=======
+uid="uid://c27dxwko6bqcr"
+>>>>>>> ad89644397d3507af5f709e99ebcdacf9c2ae849
 path="res://.godot/imported/Button_Click 16x16.png-8ad8139ae13a32d95bfa3e204005b1e4.ctex"
 metadata={
 "vram_texture": false
