@@ -134,6 +134,7 @@ func _on_timer_timeout() -> void:
 		TomStart()
 
 func BenderDragonStart() -> void:
+	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
 	$Timer.start(5.0)
 	bendGoing = true;
 	$BenderDragon.visible = true;
@@ -144,6 +145,7 @@ func BenderDragonStart() -> void:
 	$BenderDragon/Item5.disabled = false;
 	
 func BenderDragonEnd() -> void:
+	$Stage.self_modulate = Color(1, 1, 1)
 	$BenderDragon.visible = false;
 	$BenderDragon/Item1.disabled = true;
 	$BenderDragon/Item2.disabled = true;
@@ -173,6 +175,7 @@ func BenderDragonTimer() -> void:
 #------------------------------
 #Methods without '_' in front (minus dragon), used in game. Non '_' methods used in debugging
 func RpsStart() -> void:
+	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
 	$Control.visible = true;
 	RPSnode.choose_and_display_opponent_choice()
 	#node.choose_and_display_opponent_choice()
@@ -182,11 +185,13 @@ func RpsEnd() -> void:
 	
 func _on_RpsEnd():
 	$Control.visible = false;
+	$Stage.self_modulate = Color(1, 1, 1)
 	print("end")
 	stage_GO()
 	update_lights()
 	
 func HangStart() -> void:
+	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
 	$Hangman.visible = true;
 	HANGnode.generate_new_word()
 
@@ -194,6 +199,7 @@ func HangEnd() -> void:
 	$Hangman.visible = false;
 	
 func _on_HangEnd():
+	$Stage.self_modulate = Color(1, 1, 1)
 	$Hangman.visible = false;
 	print("hang END")
 	stage_GO()
@@ -205,6 +211,7 @@ func EnderEnd():
 	update_lights()
 	
 func WackStart() -> void:
+	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
 	WACKnode.visible = true;
 	WACKnode.startWack()
 
@@ -212,11 +219,13 @@ func WackEnd() -> void:
 	WACKnode.visible = false;
 
 func _on_WackEnd():
+	$Stage.self_modulate = Color(1, 1, 1)
 	WACKnode.visible = false;
 	stage_GO()
 	update_lights()
 	
 func TomStart() -> void:
+	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
 	TOMnode.visible = true;
 	TOMnode.tomato_start()
 	BULnode.spawn_start()
@@ -226,6 +235,7 @@ func TomEnd() -> void:
 	BULnode.spawn_end()
 
 func _on_TomEnd():
+	$Stage.self_modulate = Color(1, 1, 1)
 	BULnode.spawn_end()
 	await get_tree().create_timer(3.0).timeout
 	TOMnode.visible = false;
