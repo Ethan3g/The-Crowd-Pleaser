@@ -58,7 +58,7 @@ func _ready() -> void:
 	lives_Label = $Lives
 	points_Label = $Points
 	timer_Label = $TimerLabel
-	BenderDragonEnd() #not sure why this is here, too scared to touch it
+	randomizer()
 	
 	for i in range(minigame_amt):
 		var lightSpr = "Node2D/Light " + str(i) + ""
@@ -76,7 +76,6 @@ func _process(delta: float) -> void:
 	BenderDragonTimer()
 	lives_Label.text = "Lives: " + str(global.lives)
 	points_Label.text = "Points: " + str(global.points)
-	randomizer()
 	timer_Label.text = "Time: " + str(ceil(timer_node.time_left))
 
 func _input(_ev):
@@ -297,7 +296,9 @@ func update_lights() -> void:
 		LS4.texture = point_texture
 	elif progress_vals[4] == -1:
 		LS4.texture = lost_texture
+	
 	global.prog += 1;
+	randomizer()
 
 
 func _on_return_main_pressed() -> void:
