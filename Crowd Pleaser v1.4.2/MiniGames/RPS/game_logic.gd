@@ -4,10 +4,12 @@ extends Control
 var rock_texture = preload("res://MiniGames/RPS/RPSart/OPPONENTRock.png")
 var paper_texture = preload("res://MiniGames/RPS/RPSart/OPPONENTPaper.png")
 var scissors_texture = preload("res://MiniGames/RPS/RPSart/OPPONENTScissors.png")
+var background_texture = preload("res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.png")
 
 # Dictionary to store textures for Rock, Paper, and Scissors
 var choice_textures = {}
 
+@onready var background = $Background  # Reference to the TextureRect for the background
 @onready var opponent_icon = $OpponentChoiceIcon  # Reference to the TextureRect
 @onready var result_label = $ResultLabel  # Label for win/loss result
 @onready var rock_button = $HBoxContainer/RockButton
@@ -32,6 +34,9 @@ func _ready():
 	choice_textures["Rock"] = rock_texture
 	choice_textures["Paper"] = paper_texture
 	choice_textures["Scissors"] = scissors_texture
+
+	# Set the background texture
+	
 
 	# Connect buttons to functions
 	rock_button.pressed.connect(_on_rock_button_pressed)
@@ -82,7 +87,6 @@ func _play_game(player_choice: String):
 	await get_tree().create_timer(3.0).timeout
 	game_done = true
 	gameDone.emit()
-	#reset_game()
 
 func reset_game():
 	print("Resetting game...")  # Debugging
@@ -95,9 +99,6 @@ func reset_game():
 
 	# Clear the result label
 	result_label.text = "Choose an option!"
-
-	# Start a new round (opponent picks first again)
-	#choose_and_display_opponent_choice()
 
 # Button presses
 func _on_rock_button_pressed() -> void:
@@ -152,8 +153,6 @@ func _on_timer_timeout() -> void:
 			result_label.text = "You were too late!"
 			global.lives -= 1
 			await get_tree().create_timer(3.0).timeout  # Short delay before reset
-
-			# Disable buttons to prevent any further input
 			rock_button.disabled = true
 			paper_button.disabled = true
 			scissors_button.disabled = true
