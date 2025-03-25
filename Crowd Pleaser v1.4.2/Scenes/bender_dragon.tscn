@@ -625,10 +625,10 @@ script = ExtResource("4_kaaop")
 [node name="deadDragon" type="TextureRect" parent="BenderDragon/Item2"]
 visible = false
 layout_mode = 0
-offset_left = -419.528
-offset_top = -587.0
-offset_right = 851.472
-offset_bottom = 148.0
+offset_left = -413.511
+offset_top = -591.0
+offset_right = 857.489
+offset_bottom = 144.0
 texture = ExtResource("5_xcf6w")
 
 [node name="WinSfx" type="AudioStreamPlayer" parent="BenderDragon/Item2"]
@@ -648,10 +648,10 @@ script = ExtResource("4_kaaop")
 [node name="deadDragon" type="TextureRect" parent="BenderDragon/Item3"]
 visible = false
 layout_mode = 0
-offset_left = -577.972
-offset_top = -586.0
-offset_right = 693.028
-offset_bottom = 149.0
+offset_left = -573.961
+offset_top = -589.0
+offset_right = 697.039
+offset_bottom = 146.0
 texture = ExtResource("5_xcf6w")
 
 [node name="WinSfx" type="AudioStreamPlayer" parent="BenderDragon/Item3"]

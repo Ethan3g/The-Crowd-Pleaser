@@ -10,5 +10,6 @@ func _pressed() -> void:
 	$"../Item5".disabled = true;
 	$"../Item3".disabled = true;
 	global.points += 1;
+	global.winstate = 1
 	global.done = true;
 	print(global.points);

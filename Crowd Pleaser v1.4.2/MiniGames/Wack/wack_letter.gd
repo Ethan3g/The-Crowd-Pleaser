@@ -142,8 +142,10 @@ func end_game(did_ya_win):
 	clear_all_labels()
 	if did_ya_win:
 		global.points += 1;
+		global.winstate = 1;
 	else: 
 		global.lives -= 1;
+		global.winstate = -1;
 	$EndTimer.start(1.0*time_scale)
 
 

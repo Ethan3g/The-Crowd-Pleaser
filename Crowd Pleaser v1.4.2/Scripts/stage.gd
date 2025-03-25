@@ -234,19 +234,16 @@ func _on_TomEnd():
 func randomizer() -> void:
 	random = rng.randi_range(1, 5)
 	if random == stored:
-		if random == 5:
-			random -= 1
-		else:
-			random += 1
+		random = rng.randi_range(1, 5)
 	stored = random
 
 #Update progression lights
 func update_lights() -> void:
-	var current_light = current_minig - 1;
+	var current_light = global.prog
 	
 	# Probably easier way to do this, but I am severly sleep deprived
 
-	progress_vals[current_light] = 1;
+	progress_vals[current_light] = global.winstate;
 
 	#var LS0 = $Node2D/Light0
 	#var LS1 = $Node2D/Light1
@@ -290,7 +287,7 @@ func update_lights() -> void:
 		LS4.texture = point_texture
 	elif progress_vals[4] == -1:
 		LS4.texture = lost_texture
-	
+	global.prog += 1;
 
 
 func _on_return_main_pressed() -> void:

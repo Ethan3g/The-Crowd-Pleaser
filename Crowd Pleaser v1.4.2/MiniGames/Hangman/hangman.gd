@@ -132,6 +132,7 @@ func check_win_condition():
 	word_label.text = "You Win!"
 	disable_buttons()
 	global.points += 1
+	global.winstate = 1
 	
 	await get_tree().create_timer(3.0).timeout
 	gameDone.emit()
@@ -142,6 +143,7 @@ func check_game_over():
 		$LoseSfx.play()
 		word_label.text = "Game Over! The word was: " + current_word
 		disable_buttons()
+		global.winstate = -1
 		global.lives -= 1
 		
 		await get_tree().create_timer(3.0).timeout
