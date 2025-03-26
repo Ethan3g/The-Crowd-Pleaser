@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://3dhme6ybutgj"]
+[gd_scene load_steps=124 format=3 uid="uid://3dhme6ybutgj"]
 
 [ext_resource type="Script" uid="uid://csmrxundg4b1f" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://bvxvclss1scs6" path="res://Assets/HomeHov.tres" id="43_gdfwc"]
 [ext_resource type="Texture2D" uid="uid://cn27tg2vg6ohv" path="res://Assets/NoMuteIdle.tres" id="44_3hy1l"]
 [ext_resource type="Texture2D" uid="uid://dtfmvuik2i5q8" path="res://Assets/NoMuteHov.tres" id="45_0exir"]
+[ext_resource type="Texture2D" uid="uid://dq7351u0nuj6y" path="res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.PNG" id="58_1ydbe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wbb4"]
 atlas = ExtResource("9_pkfj5")
@@ -878,21 +879,27 @@ offset_bottom = 119.0
 script = ExtResource("10_iebwu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
+visible = false
 modulate = Color(0, 0, 0, 1)
+z_index = 2
 position = Vector2(795, 517)
 scale = Vector2(10, 10)
 texture = ExtResource("17_b7d6f")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 visibility_layer = 2
+z_index = 1
 layout_mode = 0
-offset_left = 599.0
-offset_top = 590.0
-offset_right = 989.0
-offset_bottom = 815.0
-scale = Vector2(1.025, 1.025)
+offset_left = 388.63
+offset_top = 513.005
+offset_right = 1018.63
+offset_bottom = 738.005
+scale = Vector2(1.31, 1.31)
+pivot_offset = Vector2(13.085, 0)
+theme_override_constants/separation = 117
 
 [node name="RockButton" type="TextureButton" parent="Control/HBoxContainer"]
+z_index = 1
 layout_mode = 2
 texture_normal = ExtResource("11_g45yf")
 texture_pressed = ExtResource("13_nsyi7")
@@ -914,27 +921,29 @@ texture_hover = ExtResource("17_xasfp")
 stretch_mode = 3
 
 [node name="ResultLabel" type="Label" parent="Control"]
+z_index = 2
 layout_mode = 0
-offset_left = 564.0
-offset_top = 810.0
-offset_right = 1024.0
-offset_bottom = 850.0
+offset_left = 461.0
+offset_top = 465.845
+offset_right = 1120.0
+offset_bottom = 534.845
 theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 50
 text = "Rock paper scissors go!!"
 horizontal_alignment = 1
 uppercase = true
 
 [node name="OpponentChoiceIcon" type="TextureRect" parent="Control"]
+z_index = 3
 custom_minimum_size = Vector2(160, 160)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 6.1913
-anchor_top = 2.84034
-anchor_right = 7.28696
-anchor_bottom = 3.84874
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_left = 6.16522
+anchor_top = 1.98319
+anchor_right = 7.65199
+anchor_bottom = 3.41203
+offset_right = 0.020874
+offset_bottom = -0.0320129
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="Control"]
@@ -942,12 +951,13 @@ wait_time = 5.0
 one_shot = true
 
 [node name="TimerLabel" type="Label" parent="Control"]
+z_index = 3
 layout_mode = 0
 offset_left = 159.0
-offset_top = 152.0
+offset_top = 127.44
 offset_right = 199.0
-offset_bottom = 175.0
-theme_override_font_sizes/font_size = 20
+offset_bottom = 162.44
+theme_override_font_sizes/font_size = 25
 
 [node name="--Sounds--" type="Node" parent="Control"]
 
@@ -962,6 +972,15 @@ stream = ExtResource("15_r1sg3")
 stream = ExtResource("16_h88s4")
 volume_db = -11.534
 pitch_scale = 1.1
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 117.0
+offset_right = 1432.0
+offset_bottom = 854.0
+mouse_filter = 2
+texture = ExtResource("58_1ydbe")
 
 [node name="Hangman" parent="." instance=ExtResource("17_o3wyr")]
 visible = false
