@@ -248,9 +248,15 @@ func randomizer() -> void:
 
 #Update progression lights
 func update_lights() -> void:
-	var current_light = global.prog
+	var current_light
 	
-	# Probably easier way to do this, but I am severly sleep deprived
+	if global.prog < 5:
+		current_light = global.prog
+	else:
+		global.prog = 0
+		current_light = global.prog
+	
+	
 
 	progress_vals[current_light] = global.winstate;
 
