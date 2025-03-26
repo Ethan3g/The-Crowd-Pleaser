@@ -16,7 +16,7 @@ scale = Vector2(10, 10)
 texture = ExtResource("2_123mh")
 
 [node name="player_topdown" parent="." instance=ExtResource("2_5lwwx")]
-position = Vector2(778, 461)
+position = Vector2(791, 521)
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_o73qf")]
 position = Vector2(729, -69)

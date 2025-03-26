@@ -1,95 +1,75 @@
 extends Node2D
 
 @export var bullet_scene: PackedScene
-@export var min_rotation = 90
-@export var max_rotation = 450
 @export var num_bullets = 2
-@export var is_random = false
-@export var is_parent = false
-@export var is_manual = false #false means it uses timer
-@export var spawn_rate = 1.6 #if using automatic
-@export var bullet_speed = 400
-@export var bullet_velocity = Vector2(1, 0)
-@export var bullet_lifetime = 10.00
-@export var use_velocity = false
-@export var movement_min = -300
-@export var movement_max = 300
-var start_x
+@export var spawn_rate = 2.0
+@export var bullet_lifetime = 10.0
+@export var log_to_console = false
 
+# Box boundaries
+var min_x = 480
+var max_x = 480
+var min_y = 400
+var max_y = 650
 
-var rotations = []
-var log_to_console = false
+# Spawn positions (now randomized within the box boundaries)
+var left_spawn_y = 500
+var right_spawn_y = 500
+var top_spawn_x = 500
+var bottom_spawn_x = 500
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-	#$Timer.wait_time = spawn_rate
-	#$Timer.start()
-	#start_x = global_position.x
 
 func spawn_start() -> void:
 	$Timer.wait_time = spawn_rate
 	$Timer.start()
-	start_x = global_position.x
-	
+
 func spawn_end() -> void:
 	$Timer.stop()
 
-func random_rotations():
-	rotations = []
-	for i in range(0, num_bullets):
-		rotations.append(randf_range(max_rotation, min_rotation))
-
-func distributed_rotations():
-	rotations = []
-	for i in range(0, num_bullets):
-		var fraction = float(i)/float(num_bullets)
-		var difference = max_rotation - min_rotation
-		rotations.append((fraction * difference) + min_rotation)
-
 func spawn_bullets():
-	if (is_random):
-		random_rotations()
-	else:
-		distributed_rotations()
-		
-	var spawned_bullets = []
-	
-	for i in range(0, num_bullets):
+	for i in range(num_bullets):
 		var bullet = bullet_scene.instantiate()
-		
-		spawned_bullets.append(bullet)
-		
-		if (is_parent):
-			add_child(spawned_bullets[i])
-		else:
-			get_node("/root").add_child(spawned_bullets[i])
-		
-		spawned_bullets[i].rotation_degrees = rotations[i]
-		spawned_bullets[i].speed = bullet_speed
-		spawned_bullets[i].velocity = bullet_velocity
-		spawned_bullets[i].global_position = global_position
-		spawned_bullets[i].use_velocity = use_velocity
-		spawned_bullets[i].lifetime = bullet_lifetime
-		
-		if (log_to_console):
-			print("Bullet " + str(i) + " @ " + str(rotations[i]) + " deg")
-		
-	return spawned_bullets
 
+		# Step 1: Determine side and spawn correctly
+		var spawn_pos = get_specific_outside_position()
+		bullet.global_position = spawn_pos
 
+		# Step 2: Target a random point inside the box
+		var target_pos = Vector2(randf_range(min_x, max_x), randf_range(min_y, max_y))
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+		# Step 3: Calculate trajectory
+		var direction = (target_pos - spawn_pos).normalized()
+		
+		var random_speed = randf_range(1000, 3000)
+		bullet.velocity = direction * random_speed
+		bullet.lifetime = bullet_lifetime
 
+		# Step 4: Apply random scale to the bullet
+		# Randomly scale between 0.5x and 1.5x of original size
+		var random_scale = randf_range(0.5, 1.5)
+		bullet.scale = Vector2(random_scale, random_scale)
 
+		# Step 5: Add bullet to scene
+		get_node("/root").add_child(bullet)
+
+		if log_to_console:
+			print("Bullet spawned at:", spawn_pos, "Targeting:", target_pos)
+
+# Get a fixed spawn position based on side
+func get_specific_outside_position() -> Vector2:
+	var side = randi_range(0, 3)
+	match side:
+		0: # Left (Y randomized within box)
+			return Vector2(min_x - 50, randf_range(min_y, max_y))
+		1: # Right (Y randomized within box)
+			return Vector2(max_x + 50, randf_range(min_y, max_y))
+		2: # Top (X randomized within box)
+			return Vector2(randf_range(min_x, max_x), min_y - 50)
+		3: # Bottom (X randomized within box)
+			return Vector2(randf_range(min_x, max_x), max_y + 50)
+	return Vector2.ZERO
 
 func _on_timer_timeout() -> void:
-	#move to location
-	global_position = Vector2(start_x+randf_range(movement_min, movement_max), global_position.y)
-	if !is_manual:
-		spawn_bullets()
-	if (log_to_console):
-		print("Spawned Bullet")
-	
+	spawn_bullets()

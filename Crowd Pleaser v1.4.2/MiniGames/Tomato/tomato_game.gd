@@ -2,20 +2,22 @@ extends Node2D
 
 signal gameDone
 
+var min_x = 600
+var max_x = 990
+var min_y = 375
+var max_y = 750
+
 func _ready() -> void:
 	pass
-	#$GameTimer.start(8.0)
-	#print("Started")
-	
+
+func _process(delta: float) -> void:
+	var player = $player_topdown
+	player.position.x = clamp(player.position.x, min_x, max_x)
+	player.position.y = clamp(player.position.y, min_y, max_y)
+
 func tomato_start() -> void:
 	$GameTimer.start(8.0)
 	print("GO")
-
-#remaining things to do:
-# offset their timers?
-# bounding box for player movement (clamp)
-# add visuals
-# add game end effects
 
 func _on_player_topdown_been_hit() -> void:
 	print("got hit L")
@@ -23,11 +25,7 @@ func _on_player_topdown_been_hit() -> void:
 	$GameTimer.stop()
 	global.lives -= 1
 	global.winstate = -1
-	
-	# Signal here (In Stage, have the delay so that  bullets stop...)
 	gameDone.emit()
-	#lose the game
-
 
 func _on_timer_timeout() -> void:
 	print("time's up!")
@@ -36,4 +34,3 @@ func _on_timer_timeout() -> void:
 	global.points += 1
 	global.winstate = 1
 	gameDone.emit()
-	#win the game
