@@ -246,9 +246,16 @@ func randomizer() -> void:
 		random = rng.randi_range(1, 5)
 	stored = random
 
+func didWin() -> void:
+	if global.winstate == 1:
+		pass # Insert win sound here
+	elif global.winstate == -1:
+		pass # Insert lose sound her
+
 #Update progression lights
 func update_lights() -> void:
 	var current_light
+	didWin()
 	
 	if global.prog < 5:
 		current_light = global.prog
