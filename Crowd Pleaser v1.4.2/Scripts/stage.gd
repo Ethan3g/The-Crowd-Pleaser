@@ -1,16 +1,16 @@
 extends Node
 
-var bendGoing = false;
+var bendGoing = false
 
-#Timer in the stage
-@onready var timer_node = $StageTimer;
+# Timer in the stage
+@onready var timer_node = $StageTimer
 
-#Nodes used to call methods within their scripts (triggering on and off game)
-@onready var RPSnode = get_node("Control");
-@onready var HANGnode = get_node("Hangman");
-@onready var WACKnode = get_node("target_control/CanvasLayer");
-@onready var TOMnode = get_node("TomatoGame");
-@onready var BULnode = get_node("TomatoGame/BulletSpawner");
+# Nodes used to call methods within their scripts (triggering on and off game)
+@onready var RPSnode = get_node("Control")
+@onready var HANGnode = get_node("Hangman")
+@onready var WACKnode = get_node("target_control/CanvasLayer")
+@onready var TOMnode = get_node("TomatoGame")
+@onready var BULnode = get_node("TomatoGame/BulletSpawner")
 
 var lives_Label: Label
 var points_Label: Label
@@ -24,20 +24,20 @@ var stored = 0
 # 3 = Dragon
 # 4 = Wack
 # 5 = Tomato
-var minigame_amt = 5;
-var current_minig = 0;
+var minigame_amt = 5
+var current_minig = 0
 
-#Signals of games being done
-@onready var RPS_signal = $Control;
-@onready var HANG_signal = $Hangman;
-@onready var WACK_signal = $target_control/CanvasLayer;
-@onready var TOM_signal = $TomatoGame;
+# Signals of games being done
+@onready var RPS_signal = $Control
+@onready var HANG_signal = $Hangman
+@onready var WACK_signal = $target_control/CanvasLayer
+@onready var TOM_signal = $TomatoGame
 
-#seconds of timer
-var timer_amt = 5;
+# seconds of timer
+var timer_amt = 5
 
-#used for light visuals
-#0 -> yellow, -1 -> red, 1 -> green
+# used for light visuals
+# 0 -> yellow, -1 -> red, 1 -> green
 var progress_vals = [0, 0, 0, 0, 0]
 @onready var neu_texture = load("res://Stage Assets/Yellow.tres")
 @onready var point_texture = load("res://Stage Assets/Green.tres")
@@ -53,8 +53,6 @@ var progress_vals = [0, 0, 0, 0, 0]
 var lightSprites: Array[Texture2D]
 
 func _ready() -> void:
-	#var RPSnode = get_node("Control")
-	#node.choose_and_display_opponent_choice()
 	lives_Label = $Lives
 	points_Label = $Points
 	timer_Label = $TimerLabel
@@ -66,7 +64,7 @@ func _ready() -> void:
 	
 	timer_node.timeout.connect(_on_timer_timeout)
 	
-	#hehe more stuff for signals -> hooked up to methods
+	# Hehe more stuff for signals -> hooked up to methods
 	RPS_signal.gameDone.connect(_on_RpsEnd)
 	HANG_signal.gameDone.connect(_on_HangEnd)
 	WACK_signal.gameDone.connect(_on_WackEnd)
@@ -79,7 +77,7 @@ func _process(delta: float) -> void:
 	timer_Label.text = "Time: " + str(ceil(timer_node.time_left))
 
 func _input(_ev):
-	#Debugging stuff, not to be used in the actual game loop
+	# Debugging stuff, not to be used in the actual game loop
 	if Input.is_key_pressed(KEY_9):
 		BenderDragonStart()
 	
@@ -111,12 +109,12 @@ func _input(_ev):
 	
 	if Input.is_key_pressed(KEY_8):
 		TomEnd()
-		
-# calls the start of stage timer (will be more than just timer)
-# Will also include later the start of the dialouge section
+
+# Calls the start of stage timer (will be more than just timer)
+# Will also include later the start of the dialogue section
 func stage_GO() -> void:
 	timer_node.start(timer_amt)
-	
+
 # When timer runs out, depending on the current minigame, next one is started
 func _on_timer_timeout() -> void:
 	current_minig = random
@@ -135,110 +133,114 @@ func _on_timer_timeout() -> void:
 func BenderDragonStart() -> void:
 	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
 	$Timer.start(5.0)
-	bendGoing = true;
-	$BenderDragon.visible = true;
-	$BenderDragon/Item1.disabled = false;
-	$BenderDragon/Item2.disabled = false;
-	$BenderDragon/Item3.disabled = false;
-	$BenderDragon/Item4.disabled = false;
-	$BenderDragon/Item5.disabled = false;
-	
+	bendGoing = true
+	$BenderDragon.visible = true
+	$BenderDragon/Item1.disabled = false
+	$BenderDragon/Item2.disabled = false
+	$BenderDragon/Item3.disabled = false
+	$BenderDragon/Item4.disabled = false
+	$BenderDragon/Item5.disabled = false
+
 func BenderDragonEnd() -> void:
 	$Stage.self_modulate = Color(1, 1, 1)
-	$BenderDragon.visible = false;
-	$BenderDragon/Item1.disabled = true;
-	$BenderDragon/Item2.disabled = true;
-	$BenderDragon/Item3.disabled = true;
-	$BenderDragon/Item4.disabled = true;
-	$BenderDragon/Item5.disabled = true;
-	$BenderDragon/Item3/deadDragon.visible = false;
-	$BenderDragon/Item2/deadDragon.visible = false;
-	$BenderDragon/Item1/death.visible = false;
-	$BenderDragon/Item4/death.visible = false;
-	$BenderDragon/Item5/death.visible = false;
+	$BenderDragon.visible = false
+	$BenderDragon/Item1.disabled = true
+	$BenderDragon/Item2.disabled = true
+	$BenderDragon/Item3.disabled = true
+	$BenderDragon/Item4.disabled = true
+	$BenderDragon/Item5.disabled = true
+	$BenderDragon/Item3/deadDragon.visible = false
+	$BenderDragon/Item2/deadDragon.visible = false
+	$BenderDragon/Item1/death.visible = false
+	$BenderDragon/Item4/death.visible = false
+	$BenderDragon/Item5/death.visible = false
 
 func BenderDragonTimer() -> void:
 	if bendGoing == true:
-		if $Timer.is_stopped() == true && global.done == false:
-			global.lives -= 1;
-			bendGoing = false;
+		if $Timer.is_stopped() == true and global.done == false:
+			global.lives -= 1
+			bendGoing = false
 			BenderDragonEnd()
 			print("dead")
 			EnderEnd()
-	
-		elif $Timer.is_stopped() == true && global.done == true:
-			bendGoing = false;
+		elif $Timer.is_stopped() == true and global.done == true:
+			bendGoing = false
 			BenderDragonEnd()
 			EnderEnd()
-			
+
 #------------------------------
-#Methods without '_' in front (minus dragon), used in game. Non '_' methods used in debugging
+# Methods without '_' in front (minus dragon), used in game. Non '_' methods used in debugging
 func RpsStart() -> void:
 	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
-	$Control.visible = true;
+	$Control.visible = true
 	RPSnode.choose_and_display_opponent_choice()
-	#node.choose_and_display_opponent_choice()
-	
+
 func RpsEnd() -> void:
-	$Control.visible = false;
-	
+	$Control.visible = false
+
 func _on_RpsEnd():
-	$Control.visible = false;
+	$Control.visible = false
 	$Stage.self_modulate = Color(1, 1, 1)
 	print("end")
 	stage_GO()
 	update_lights()
-	
+
 func HangStart() -> void:
 	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
-	$Hangman.visible = true;
+	$Hangman.visible = true
 	HANGnode.generate_new_word()
 
 func HangEnd() -> void:
-	$Hangman.visible = false;
-	
+	$Hangman.visible = false
+
 func _on_HangEnd():
 	$Stage.self_modulate = Color(1, 1, 1)
-	$Hangman.visible = false;
+	$Hangman.visible = false
 	print("hang END")
 	stage_GO()
 	update_lights()
-	
+
 func EnderEnd():
 	print("ender end")
 	stage_GO()
 	update_lights()
-	
+
 func WackStart() -> void:
 	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
-	WACKnode.visible = true;
+	WACKnode.visible = true
 	WACKnode.startWack()
 
 func WackEnd() -> void:
-	WACKnode.visible = false;
+	WACKnode.visible = false
 
 func _on_WackEnd():
 	$Stage.self_modulate = Color(1, 1, 1)
-	WACKnode.visible = false;
+	WACKnode.visible = false
 	stage_GO()
 	update_lights()
-	
+
+# Tomato Game Functions
 func TomStart() -> void:
 	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
-	TOMnode.visible = true;
+	TOMnode.visible = true
 	TOMnode.tomato_start()
 	BULnode.spawn_start()
-	
+	print("Tomato minigame started")
+
 func TomEnd() -> void:
-	TOMnode.visible = false;
+	TOMnode.visible = false
 	BULnode.spawn_end()
+	print("Tomato minigame ended, waiting for next game...")
 
 func _on_TomEnd():
 	$Stage.self_modulate = Color(1, 1, 1)
 	BULnode.spawn_end()
+	print("Tomato Ended signal received")
 	await get_tree().create_timer(3.0).timeout
-	TOMnode.visible = false;
+	TOMnode.visible = false
+	print("Tomato minigame visibility set to false")
 	update_lights()
+	stage_GO()  # Start the next game
 
 func randomizer() -> void:
 	random = rng.randi_range(1, 5)
@@ -246,7 +248,7 @@ func randomizer() -> void:
 		random = rng.randi_range(1, 5)
 	stored = random
 
-#Update progression lights
+# Update progression lights
 func update_lights() -> void:
 	var current_light
 	
@@ -256,32 +258,24 @@ func update_lights() -> void:
 		global.prog = 0
 		current_light = global.prog
 	
-	
+	progress_vals[current_light] = global.winstate
 
-	progress_vals[current_light] = global.winstate;
-
-	#var LS0 = $Node2D/Light0
-	#var LS1 = $Node2D/Light1
-	#var LS2 = $Node2D/Light2
-#	var LS3 = $Node2D/Light3
-#	var LS4 = $Node2D/Light4
-	
-	#Light 0
+	# Light 0
 	if progress_vals[0] == 0:
 		LS0.texture = neu_texture
 	elif progress_vals[0] == 1:
 		LS0.texture = point_texture
 	elif progress_vals[0] == -1:
 		LS0.texture = lost_texture
-	
-	#Light 1
+
+	# Light 1
 	if progress_vals[1] == 0:
 		LS1.texture = neu_texture
 	elif progress_vals[1] == 1:
 		LS1.texture = point_texture
 	elif progress_vals[1] == -1:
 		LS1.texture = lost_texture
-	
+
 	if progress_vals[2] == 0:
 		LS2.texture = neu_texture
 	elif progress_vals[2] == 1:
@@ -303,9 +297,8 @@ func update_lights() -> void:
 	elif progress_vals[4] == -1:
 		LS4.texture = lost_texture
 	
-	global.prog += 1;
+	global.prog += 1
 	randomizer()
-
 
 func _on_return_main_pressed() -> void:
 	print("Menu")
@@ -314,7 +307,8 @@ func _on_return_main_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
 
-
-# Will be implemented with sound (unsure if seperate sound music controller script...
+	
+	
+# Will be implemented with sound (unsure if separate sound music controller script...)
 func _on_mute_pressed() -> void:
-	pass # Replace with function body.
+	pass # Replace with function body

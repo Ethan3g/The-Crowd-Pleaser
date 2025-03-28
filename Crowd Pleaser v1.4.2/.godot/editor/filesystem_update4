@@ -1,7 +1,7 @@
-res://MiniGames/Tomato/tomato_game.tscn
-res://MiniGames/Wack/WackArt/WackHit.tres
-res://MiniGames/Tomato/tomato_game.gd
 res://Scenes/bender_dragon.tscn
+res://MiniGames/Wack/WackArt/WackHit.tres
 res://MiniGames/Hangman/hangman.tscn
 res://Scenes/menu.tscn
-res://MiniGames/Tomato/TomSpawner/bullet_spawner.gd
+res://MiniGames/Tomato/tomato_game.tscn
+res://MiniGames/Tomato/tomato_game.gd
+res://Scripts/stage.gd
