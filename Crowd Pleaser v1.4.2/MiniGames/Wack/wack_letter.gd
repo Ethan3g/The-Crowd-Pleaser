@@ -81,6 +81,7 @@ func _input(event: InputEvent) -> void:
 					labelsB[expected_letter].texture = hit_texture
 					$HitSfx.play()
 					$HitTimer.stop()
+					print("wack triggered")
 					await get_tree().create_timer(0.5).timeout
 					#print(expected_letter)
 					clear_all_labels()

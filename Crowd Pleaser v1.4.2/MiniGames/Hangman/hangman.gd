@@ -24,6 +24,7 @@ var fin = false;
 # signal to tell stage.gd that game is done
 signal gameDone
 
+
 func _ready():
 	# Get references to the nodes
 	hangman_sprite = $HangManSprite

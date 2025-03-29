@@ -52,6 +52,15 @@ var progress_vals = [0, 0, 0, 0, 0]
 
 var lightSprites: Array[Texture2D]
 
+# Audio stuff
+var isMuted = false
+var muteNoIdle = load("res://Assets/NoMuteIdle.tres")
+var muteNoHov = load("res://Assets/NoMuteHov.tres")
+var muteIdle = load("res://Assets/MuteIdle.tres")
+var muteHov = load("res://Assets/MuteHov.tres")
+
+var audio_stage
+
 func _ready() -> void:
 	lives_Label = $Lives
 	points_Label = $Points
@@ -64,11 +73,16 @@ func _ready() -> void:
 	
 	timer_node.timeout.connect(_on_timer_timeout)
 	
+	
 	# Hehe more stuff for signals -> hooked up to methods
 	RPS_signal.gameDone.connect(_on_RpsEnd)
 	HANG_signal.gameDone.connect(_on_HangEnd)
 	WACK_signal.gameDone.connect(_on_WackEnd)
 	TOM_signal.gameDone.connect(_on_TomEnd)
+	
+	isMuted = false
+	
+
 
 func _process(delta: float) -> void:
 	BenderDragonTimer()
@@ -113,10 +127,13 @@ func _input(_ev):
 # Calls the start of stage timer (will be more than just timer)
 # Will also include later the start of the dialogue section
 func stage_GO() -> void:
+	# global winstate -> if 1, will be succeed, if -1, is lost
+	print("Stage go")
 	timer_node.start(timer_amt)
 
 # When timer runs out, depending on the current minigame, next one is started
 func _on_timer_timeout() -> void:
+	
 	current_minig = random
 		
 	if current_minig == 1:
@@ -129,6 +146,11 @@ func _on_timer_timeout() -> void:
 		WackStart()
 	elif current_minig == 5:
 		TomStart()
+		
+# Called after each minigame is done -> goes to Audio Manager
+func miniDone() -> void:
+	var test = get_node("Audio Manager").get_script()
+	$"Audio Manager"._mini_done()
 
 func BenderDragonStart() -> void:
 	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
@@ -182,6 +204,8 @@ func _on_RpsEnd():
 	$Control.visible = false
 	$Stage.self_modulate = Color(1, 1, 1)
 	print("end")
+	miniDone()
+	
 	stage_GO()
 	update_lights()
 
@@ -192,16 +216,21 @@ func HangStart() -> void:
 
 func HangEnd() -> void:
 	$Hangman.visible = false
+	miniDone()
 
 func _on_HangEnd():
 	$Stage.self_modulate = Color(1, 1, 1)
 	$Hangman.visible = false
 	print("hang END")
+	miniDone()
+	
 	stage_GO()
 	update_lights()
 
 func EnderEnd():
 	print("ender end")
+	miniDone()
+	
 	stage_GO()
 	update_lights()
 
@@ -216,6 +245,8 @@ func WackEnd() -> void:
 func _on_WackEnd():
 	$Stage.self_modulate = Color(1, 1, 1)
 	WACKnode.visible = false
+	miniDone()
+	
 	stage_GO()
 	update_lights()
 
@@ -239,6 +270,8 @@ func _on_TomEnd():
 	await get_tree().create_timer(3.0).timeout
 	TOMnode.visible = false
 	print("Tomato minigame visibility set to false")
+	miniDone()
+	
 	update_lights()
 	stage_GO()  # Start the next game
 
@@ -304,11 +337,20 @@ func _on_return_main_pressed() -> void:
 	print("Menu")
 	global.points = 0
 	global.lives = 5
+	# Gives time for sound to play
+	await get_tree().create_timer(0.25).timeout
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
-
-	
-	
-# Will be implemented with sound (unsure if separate sound music controller script...)
+# Flips the mute button states (to with no X and with X)
+# Would have used toggle, but toggle doesn't support two hovers
 func _on_mute_pressed() -> void:
-	pass # Replace with function body
+	isMuted = !isMuted
+	
+	if isMuted:
+		print("Mute")
+		$"Buttons STAGE/Mute".texture_normal = muteIdle
+		$"Buttons STAGE/Mute".texture_hover = muteHov
+	else:
+		print("UnMute")
+		$"Buttons STAGE/Mute".texture_normal = muteNoIdle
+		$"Buttons STAGE/Mute".texture_hover = muteNoHov

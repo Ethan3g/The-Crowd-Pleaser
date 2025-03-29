@@ -1,7 +1,8 @@
+AudioStreamPlayer
+Node2D
 TextureRect
 AnimatedSprite2D
 TextureButton
-Node2D
 Sprite2D
 Control
 Node
