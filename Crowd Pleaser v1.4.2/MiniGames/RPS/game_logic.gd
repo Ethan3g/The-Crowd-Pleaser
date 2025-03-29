@@ -56,7 +56,7 @@ func choose_and_display_opponent_choice():
 		print("Error: Opponent choice texture not found!")
 
 	# Show message for player to choose
-	result_label.text = "AHHHH DO SOMETHING!"
+	result_label.text = "Rock Paper Scissors GOO!"
 
 	# Enable player's buttons immediately so they can choose
 	rock_button.disabled = false

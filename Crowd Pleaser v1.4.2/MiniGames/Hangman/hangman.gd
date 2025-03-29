@@ -45,13 +45,15 @@ func _ready():
 
 # Function to generate a new word for the game
 func generate_new_word():
+	# Reset the game state
 	current_word = word_list[randi() % word_list.size()]  # Pick a random word
 	guessed_letters = []
 	incorrect_letters = []
 	incorrect_guesses = 0
+	fin = false  # Reset the game over flag
 
+	# Start a new game
 	reveal_starting_letters()  # Reveal 1-2 letters at the start
-
 	update_word_display()
 	update_incorrect_label()
 	update_attempts_label()
