@@ -1,7 +1,11 @@
-res://Scenes/bender_dragon.tscn
-res://MiniGames/Wack/WackArt/WackHit.tres
-res://MiniGames/Hangman/hangman.tscn
-res://Scenes/menu.tscn
 res://MiniGames/Tomato/tomato_game.tscn
-res://MiniGames/Tomato/tomato_game.gd
+res://MiniGames/Wack/WackArt/WackHit.tres
+res://MiniGames/Tomato/TomSpawner/bullet_spawner.gd
+res://Scenes/bender_dragon.tscn
+res://Scenes/menu.tscn
+res://MiniGames/Tomato/DodgeTomato/player_topdown.gd
+res://MiniGames/RPS/game_logic.gd
+res://MiniGames/Hangman/hangman.gd
+res://MiniGames/Wack/node_2d.tscn
+res://MiniGames/Wack/wack_letter.gd
 res://Scripts/stage.gd
