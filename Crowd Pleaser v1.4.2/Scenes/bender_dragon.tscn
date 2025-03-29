@@ -61,7 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://cn27tg2vg6ohv" path="res://Assets/NoMuteIdle.tres" id="44_3hy1l"]
 [ext_resource type="Texture2D" uid="uid://dtfmvuik2i5q8" path="res://Assets/NoMuteHov.tres" id="45_0exir"]
 [ext_resource type="Texture2D" uid="uid://dq7351u0nuj6y" path="res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.PNG" id="58_1ydbe"]
-[ext_resource type="Script" uid="uid://yim8g05wpv5o" path="res://Scenes/AudioManager.gd" id="62_8rh5o"]
+[ext_resource type="Script" path="res://Scenes/AudioManager.gd" id="62_8rh5o"]
 [ext_resource type="AudioStream" uid="uid://dxvlvty35l22u" path="res://Sounds/390561__iut_paris8__alison_barreau_2016_2017_oldvideogame_1.wav" id="62_81sya"]
 [ext_resource type="AudioStream" uid="uid://b13s1ratnq2gg" path="res://Sounds/721503__baggonotes__button_click2_1.wav" id="63_se7ag"]
 [ext_resource type="AudioStream" uid="uid://bvax000pnghus" path="res://Sounds/game-music-player-console-8bit-background-intro-theme-297305.mp3" id="64_101lo"]

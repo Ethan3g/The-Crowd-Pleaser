@@ -18,6 +18,9 @@ texture = ExtResource("2_uadv7")
 [node name="player_topdown" parent="." instance=ExtResource("2_5lwwx")]
 position = Vector2(791, 521)
 
+[node name="DamageCooldown" type="Timer" parent="player_topdown"]
+one_shot = true
+
 [node name="BulletSpawner" parent="." instance=ExtResource("1_o73qf")]
 position = Vector2(729, -69)
 
@@ -37,4 +40,5 @@ volume_db = -11.534
 pitch_scale = 1.1
 
 [connection signal="been_hit" from="player_topdown" to="." method="_on_player_topdown_been_hit"]
+[connection signal="timeout" from="player_topdown/DamageCooldown" to="player_topdown" method="_on_damage_cooldown_timeout"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_timer_timeout"]

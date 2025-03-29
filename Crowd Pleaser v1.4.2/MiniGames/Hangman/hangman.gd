@@ -46,13 +46,15 @@ func _ready():
 
 # Function to generate a new word for the game
 func generate_new_word():
+	# Reset the game state
 	current_word = word_list[randi() % word_list.size()]  # Pick a random word
 	guessed_letters = []
 	incorrect_letters = []
 	incorrect_guesses = 0
+	fin = false  # Reset the game over flag
 
+	# Start a new game
 	reveal_starting_letters()  # Reveal 1-2 letters at the start
-
 	update_word_display()
 	update_incorrect_label()
 	update_attempts_label()
@@ -74,6 +76,10 @@ func reveal_starting_letters():
 	# Remove duplicates and already guessed letters
 	unique_letters = unique_letters.filter(func(l): return l not in guessed_letters and l != " ")  # Avoid duplicates
 
+	# Check for the specific word "BOOOOOOOO"
+	if current_word == "BOOOOOOOO":
+		letters_to_reveal = 1  # Force only 1 letter to be revealed
+	
 	while letters_to_reveal > 0 and unique_letters.size() > 0:
 		var random_letter = unique_letters.pick_random()
 		guessed_letters.append(random_letter)

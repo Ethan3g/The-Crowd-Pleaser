@@ -7,8 +7,7 @@ extends CharacterBody2D
 var can_take_damage = true
 signal been_hit
 
-#implement movement borders
-
+# Implement movement borders
 func get_input():
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	velocity = input_dir * speed
@@ -17,6 +16,7 @@ func _physics_process(delta):
 	get_input()
 	move_and_collide(velocity * delta)
 
+# Called when the player takes damage
 func take_damage():
 	if can_take_damage:
 		can_take_damage = false
@@ -24,6 +24,29 @@ func take_damage():
 		$TomHitSfx.play()
 		print("ow")
 		been_hit.emit()
-		#add some kind of timer to be able to be hit again? or if 1 hp end game
+		
+		# Start the cooldown timer after taking damage
+		$DamageCooldown.start()
+
+		# Check if HP reaches zero
+		if hp <= 0:
+			game_over()
 	else:
 		return
+
+# This function gets triggered when the DamageCooldown timer finishes
+func _on_damage_cooldown_timeout() -> void:
+	can_take_damage = true
+
+# Reset HP and invincibility flag when the player is initialized or the scene is restarted
+func _ready():
+	hp = startHP
+	can_take_damage = true  # Reset immunity
+
+# Game over logic
+func game_over():
+	print("Game Over!")
+	# You can implement additional game over logic here, such as:
+	# - Show a game over screen
+	# - Stop the game
+	# - Restart the scene, etc.
