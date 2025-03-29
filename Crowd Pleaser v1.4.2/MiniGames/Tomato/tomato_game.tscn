@@ -19,6 +19,7 @@ texture = ExtResource("2_uadv7")
 position = Vector2(791, 521)
 
 [node name="DamageCooldown" type="Timer" parent="player_topdown"]
+wait_time = 4.521
 one_shot = true
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_o73qf")]
