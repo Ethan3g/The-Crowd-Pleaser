@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brny4hble2gea"
+path="res://.godot/imported/Quirky Dog.mp3-d02f1600b19db5ee8768d29d27e5b2eb.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Quirky Dog.mp3"
+dest_files=["res://.godot/imported/Quirky Dog.mp3-d02f1600b19db5ee8768d29d27e5b2eb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cdwsgkhmhdmr7"]
+[gd_scene load_steps=30 format=3 uid="uid://cdwsgkhmhdmr7"]
 
 [ext_resource type="Script" uid="uid://xn3cqogo0ihe" path="res://Scenes/menu.gd" id="1_bnmbb"]
 [ext_resource type="Texture2D" uid="uid://pw7pyhimcd3o" path="res://Menu/Main Menu BG.png" id="2_00436"]
@@ -23,6 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://1rv8ohbffshe" path="res://Assets/HomeIdle.tres" id="20_kt2pj"]
 [ext_resource type="Texture2D" uid="uid://bvxvclss1scs6" path="res://Assets/HomeHov.tres" id="21_ojqq6"]
 [ext_resource type="Texture2D" uid="uid://du08q1pjwmkt" path="res://Assets/HomeClick.tres" id="22_7ls7b"]
+[ext_resource type="AudioStream" uid="uid://brny4hble2gea" path="res://Sounds/Quirky Dog.mp3" id="24_l6llh"]
+[ext_resource type="Script" path="res://Scenes/AudioMangMenu.gd" id="24_nakb8"]
+[ext_resource type="AudioStream" uid="uid://b13s1ratnq2gg" path="res://Sounds/721503__baggonotes__button_click2_1.wav" id="25_ocger"]
+[ext_resource type="AudioStream" uid="uid://dxvlvty35l22u" path="res://Sounds/390561__iut_paris8__alison_barreau_2016_2017_oldvideogame_1.wav" id="26_jbv25"]
+[ext_resource type="AudioStream" uid="uid://d3hojyku4uvss" path="res://Sounds/ButtonHoverAudio.wav" id="27_nakb8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_30frw"]
 animations = [{
@@ -169,7 +174,36 @@ texture_pressed = ExtResource("14_6mvqt")
 texture_hover = ExtResource("13_0s4ya")
 stretch_mode = 3
 
+[node name="Audio Mang" type="Node2D" parent="."]
+script = ExtResource("24_nakb8")
+
+[node name="MenuBG" type="AudioStreamPlayer" parent="Audio Mang"]
+stream = ExtResource("24_l6llh")
+volume_db = -20.0
+parameters/looping = true
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="Audio Mang"]
+stream = ExtResource("25_ocger")
+volume_db = -12.0
+
+[node name="Stinger" type="AudioStreamPlayer" parent="Audio Mang"]
+stream = ExtResource("26_jbv25")
+volume_db = -17.0
+pitch_scale = 1.41
+
+[node name="Hov" type="AudioStreamPlayer" parent="Audio Mang"]
+stream = ExtResource("27_nakb8")
+volume_db = -5.0
+
+[connection signal="mouse_entered" from="StartButton" to="Audio Mang" method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartButton" to="Audio Mang" method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="CreditButton" to="Audio Mang" method="_on_credit_button_mouse_entered"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="CreditButton" to="Audio Mang" method="_on_credit_button_pressed"]
+[connection signal="mouse_entered" from="QuitButton" to="Audio Mang" method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="Audio Mang" method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="Credits/ReturnButton" to="Audio Mang" method="_on_return_button_mouse_entered"]
 [connection signal="pressed" from="Credits/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Credits/ReturnButton" to="Audio Mang" method="_on_return_button_pressed"]

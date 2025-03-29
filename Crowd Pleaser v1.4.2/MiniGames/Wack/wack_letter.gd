@@ -23,7 +23,7 @@ var time_scale = 1.0
 var is_game_over
 var hits_to_win = 4
 var letter_map = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"]
-var textureLetter_map = [Q, W, E, A, S, D, Z, X, C] # matches the text letter above
+var textureLetter_map = [Q, W, E, A, S, D, Z, X, C]  # Matches the text letter above
 
 # Textures for the backings (feedback giving)
 var idle_texture = preload("res://MiniGames/Wack/WackArt/WackIdle.tres")
@@ -45,7 +45,7 @@ func _ready() -> void:
 	hits = 0
 	expect_input = false
 	is_game_over = false
-	expected_letter = randi() % 9
+	expected_letter = randi() % 9  # Ensures the letter is between 0 and 8
 	print("hello")
 	# Set all to blank
 	clear_all_labels()
@@ -57,16 +57,16 @@ func startWack() -> void:
 	expect_input = false
 	is_game_over = false
 	new_letter(-1)  # Start with no previous letter
-	$HoldTimer.start(1.0*time_scale)
+	$HoldTimer.start(1.0 * time_scale)
 
 # Generate a new letter to expect
 func new_letter(old_letter):
-	var temp = randi() % 9
+	var temp = randi() % 8  # Ensures the letter is between 0 and 8
 	if old_letter <= temp:
 		temp += 1
 	expected_letter = temp
 	if !is_game_over:
-		$HoldTimer.start(1.0*time_scale)
+		$HoldTimer.start(1.0 * time_scale)
 
 # Clear all labels and reset the game state
 func clear_all_labels():
@@ -92,7 +92,7 @@ func end_game(did_ya_win):
 	else:
 		global.lives -= 1
 		global.winstate = -1
-	$EndTimer.start(1.0*time_scale)
+	$EndTimer.start(1.0 * time_scale)
 
 # Handle input events (key presses)
 func _input(event: InputEvent) -> void:
@@ -130,11 +130,14 @@ func _on_hit_timer_timeout() -> void:
 func _on_hold_timer_timeout() -> void:
 	$HoldTimer.stop()
 	if !is_game_over:
-		labelsB[expected_letter].texture = active_texture
-		Letters[expected_letter].visible = true
-		Letters[expected_letter].texture = textureLetter_map[expected_letter]
-		$HitTimer.start(1.3*time_scale)
-		expect_input = true
+		if expected_letter >= 0 and expected_letter < labelsB.size():
+			labelsB[expected_letter].texture = active_texture
+			Letters[expected_letter].visible = true
+			Letters[expected_letter].texture = textureLetter_map[expected_letter]
+			$HitTimer.start(1.3 * time_scale)
+			expect_input = true
+		else:
+			print("Error: expected_letter out of bounds: ", expected_letter)
 
 # Handle when the end timer times out (end of game logic)
 func _on_end_timer_timeout() -> void:

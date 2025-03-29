@@ -24,6 +24,7 @@ var fin = false;
 # signal to tell stage.gd that game is done
 signal gameDone
 
+
 func _ready():
 	# Get references to the nodes
 	hangman_sprite = $HangManSprite
@@ -75,6 +76,10 @@ func reveal_starting_letters():
 	# Remove duplicates and already guessed letters
 	unique_letters = unique_letters.filter(func(l): return l not in guessed_letters and l != " ")  # Avoid duplicates
 
+	# Check for the specific word "BOOOOOOOO"
+	if current_word == "BOOOOOOOO":
+		letters_to_reveal = 1  # Force only 1 letter to be revealed
+	
 	while letters_to_reveal > 0 and unique_letters.size() > 0:
 		var random_letter = unique_letters.pick_random()
 		guessed_letters.append(random_letter)

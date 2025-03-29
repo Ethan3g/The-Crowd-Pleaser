@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 Timer
+=======
+HBoxContainer
+CanvasLayer
+AudioStreamPlayer
+Node2D
+>>>>>>> 9c8867df7e1a89d4ee9b53b735725ebd31ff69a3
 TextureRect
 AnimatedSprite2D
 TextureButton
-Node2D
 Sprite2D
 Control
 Node

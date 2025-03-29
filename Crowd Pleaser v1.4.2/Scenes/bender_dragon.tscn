@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://3dhme6ybutgj"]
+[gd_scene load_steps=132 format=3 uid="uid://3dhme6ybutgj"]
 
 [ext_resource type="Script" uid="uid://csmrxundg4b1f" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
@@ -61,6 +61,14 @@
 [ext_resource type="Texture2D" uid="uid://cn27tg2vg6ohv" path="res://Assets/NoMuteIdle.tres" id="44_3hy1l"]
 [ext_resource type="Texture2D" uid="uid://dtfmvuik2i5q8" path="res://Assets/NoMuteHov.tres" id="45_0exir"]
 [ext_resource type="Texture2D" uid="uid://dq7351u0nuj6y" path="res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.PNG" id="58_1ydbe"]
+[ext_resource type="Script" path="res://Scenes/AudioManager.gd" id="62_8rh5o"]
+[ext_resource type="AudioStream" uid="uid://dxvlvty35l22u" path="res://Sounds/390561__iut_paris8__alison_barreau_2016_2017_oldvideogame_1.wav" id="62_81sya"]
+[ext_resource type="AudioStream" uid="uid://b13s1ratnq2gg" path="res://Sounds/721503__baggonotes__button_click2_1.wav" id="63_se7ag"]
+[ext_resource type="AudioStream" uid="uid://bvax000pnghus" path="res://Sounds/game-music-player-console-8bit-background-intro-theme-297305.mp3" id="64_101lo"]
+[ext_resource type="AudioStream" uid="uid://c4tmwpf363oy5" path="res://Sounds/my-8-bit-hero-301280.mp3" id="65_p8yf4"]
+[ext_resource type="AudioStream" uid="uid://b3h30b37w6y0w" path="res://Sounds/242241__ehohnke__shortsoftchuckle1.wav" id="66_r3sj4"]
+[ext_resource type="AudioStream" uid="uid://bl1ife7pjn3au" path="res://Sounds/656116__itsthegoodstuff__crickets_1.wav" id="67_r3sj4"]
+[ext_resource type="AudioStream" uid="uid://d3hojyku4uvss" path="res://Sounds/ButtonHoverAudio.wav" id="68_8hbbn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wbb4"]
 atlas = ExtResource("9_pkfj5")
@@ -1018,9 +1026,49 @@ label_settings = SubResource("LabelSettings_5jpcn")
 wait_time = 5.0
 one_shot = true
 
+[node name="Audio Manager" type="Node2D" parent="."]
+script = ExtResource("62_8rh5o")
+
+[node name="Stinger" type="AudioStreamPlayer" parent="Audio Manager"]
+stream = ExtResource("62_81sya")
+volume_db = -20.0
+pitch_scale = 1.41
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="Audio Manager"]
+stream = ExtResource("63_se7ag")
+volume_db = -15.0
+
+[node name="StageBGMusic" type="AudioStreamPlayer" parent="Audio Manager"]
+stream = ExtResource("64_101lo")
+volume_db = -20.0
+parameters/looping = true
+
+[node name="MiniGameBG" type="AudioStreamPlayer" parent="Audio Manager"]
+stream = ExtResource("65_p8yf4")
+volume_db = -28.0
+parameters/looping = true
+
+[node name="WinAudio" type="AudioStreamPlayer" parent="Audio Manager"]
+stream = ExtResource("66_r3sj4")
+volume_db = -8.0
+
+[node name="LostAudio" type="AudioStreamPlayer" parent="Audio Manager"]
+stream = ExtResource("67_r3sj4")
+volume_db = -7.0
+pitch_scale = 0.9
+
+[node name="Hov" type="AudioStreamPlayer" parent="Audio Manager"]
+stream = ExtResource("68_8hbbn")
+volume_db = -2.0
+
+[connection signal="mouse_entered" from="Buttons STAGE/ReturnMain" to="Audio Manager" method="_on_return_main_mouse_entered"]
 [connection signal="pressed" from="Buttons STAGE/ReturnMain" to="." method="_on_return_main_pressed"]
+[connection signal="pressed" from="Buttons STAGE/ReturnMain" to="Audio Manager" method="_on_return_main_pressed"]
+[connection signal="mouse_entered" from="Buttons STAGE/Mute" to="Audio Manager" method="_on_mute_mouse_entered"]
 [connection signal="pressed" from="Buttons STAGE/Mute" to="." method="_on_mute_pressed"]
+[connection signal="pressed" from="Buttons STAGE/Mute" to="Audio Manager" method="_on_mute_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/RockButton" to="Control" method="_on_rock_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/PaperButton" to="Control" method="_on_paper_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/ScissorsButton" to="Control" method="_on_scissors_button_pressed"]
 [connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
+[connection signal="timeout" from="StageTimer" to="Audio Manager" method="_on_stage_timer_timeout"]
