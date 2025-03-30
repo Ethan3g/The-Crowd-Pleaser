@@ -21,4 +21,4 @@ texture = ExtResource("2_m5bfv")
 
 [node name="TomHitSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vgp0s")
-volume_db = 6.985
+volume_db = 8.0

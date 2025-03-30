@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://dqk2wsq5wx3sw" path="res://Stage Assets/Yellow.tres" id="7_bwar3"]
 [ext_resource type="Texture2D" uid="uid://dd4vlca3k600v" path="res://Assets/bow.tres" id="7_jwr2b"]
 [ext_resource type="Texture2D" uid="uid://cj5fvys4c36ke" path="res://Assets/bed.tres" id="8_j5x5f"]
-[ext_resource type="AudioStream" uid="uid://cbotfa3ar66se" path="res://Sounds/minecraft.wav" id="8_nt1we"]
 [ext_resource type="Texture2D" uid="uid://y6qoyyo0oikf" path="res://MiniGames/Wack/WackArt/A.tres" id="8_opyli"]
 [ext_resource type="AudioStream" uid="uid://dwintm1rvstdv" path="res://Sounds/719053__unfa__oof-original.wav" id="8_vgt24"]
 [ext_resource type="Texture2D" uid="uid://dkxtru43qih23" path="res://MiniGames/Wack/WackArt/Wack-letter.png" id="9_pkfj5"]
@@ -48,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://dib8nd2oi2m6b" path="res://Assets/guy.tres" id="19_vui1d"]
 [ext_resource type="Texture2D" uid="uid://b5qp0y11hh5j2" path="res://Assets/comedian.PNG" id="20_tgndy"]
 [ext_resource type="Texture2D" uid="uid://ce02uaqcv5xgn" path="res://Assets/guy2.tres" id="21_6l1kp"]
+[ext_resource type="AudioStream" uid="uid://yvm8bfd12tt1" path="res://Sounds/490253__anomaex__sci-fi_explosion.wav" id="30_8rh5o"]
 [ext_resource type="Texture2D" uid="uid://d3150uyc8ufov" path="res://Stage Assets/Light rail.png" id="33_wbmb1"]
 [ext_resource type="Texture2D" uid="uid://dnk5rcdpapdi2" path="res://Art Assets/Backgrounds/Stage/stage.PNG" id="35_ba0qs"]
 [ext_resource type="Texture2D" uid="uid://cbyhmwu2d8k7f" path="res://Art Assets/Characters/NPCs/npcs.PNG" id="36_1ydbe"]
@@ -61,7 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://cn27tg2vg6ohv" path="res://Assets/NoMuteIdle.tres" id="44_3hy1l"]
 [ext_resource type="Texture2D" uid="uid://dtfmvuik2i5q8" path="res://Assets/NoMuteHov.tres" id="45_0exir"]
 [ext_resource type="Texture2D" uid="uid://dq7351u0nuj6y" path="res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.PNG" id="58_1ydbe"]
-[ext_resource type="Script" path="res://Scenes/AudioManager.gd" id="62_8rh5o"]
+[ext_resource type="Script" uid="uid://yim8g05wpv5o" path="res://Scenes/AudioManager.gd" id="62_8rh5o"]
 [ext_resource type="AudioStream" uid="uid://dxvlvty35l22u" path="res://Sounds/390561__iut_paris8__alison_barreau_2016_2017_oldvideogame_1.wav" id="62_81sya"]
 [ext_resource type="AudioStream" uid="uid://b13s1ratnq2gg" path="res://Sounds/721503__baggonotes__button_click2_1.wav" id="63_se7ag"]
 [ext_resource type="AudioStream" uid="uid://bvax000pnghus" path="res://Sounds/game-music-player-console-8bit-background-intro-theme-297305.mp3" id="64_101lo"]
@@ -641,8 +641,8 @@ offset_bottom = 144.0
 texture = ExtResource("5_xcf6w")
 
 [node name="WinSfx" type="AudioStreamPlayer" parent="BenderDragon/Item2"]
-stream = ExtResource("8_nt1we")
-volume_db = -21.79
+stream = ExtResource("30_8rh5o")
+volume_db = -5.0
 
 [node name="Item3" type="TextureButton" parent="BenderDragon"]
 offset_left = 734.06
@@ -664,8 +664,8 @@ offset_bottom = 146.0
 texture = ExtResource("5_xcf6w")
 
 [node name="WinSfx" type="AudioStreamPlayer" parent="BenderDragon/Item3"]
-stream = ExtResource("8_nt1we")
-volume_db = -21.79
+stream = ExtResource("30_8rh5o")
+volume_db = -5.0
 
 [node name="Item4" type="TextureButton" parent="BenderDragon"]
 offset_left = 894.511

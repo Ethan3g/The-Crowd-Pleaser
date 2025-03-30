@@ -61,6 +61,11 @@ var muteHov = load("res://Assets/MuteHov.tres")
 
 var audio_stage
 
+# Using to disable 'K' input (during hangman)
+var stageRunning = false
+# Can probably have a 'if stageRunning == true and minigame completed = 5, trigger ending part
+	# Sees if win or loose
+
 func _ready() -> void:
 	lives_Label = $Lives
 	points_Label = $Points
@@ -97,6 +102,9 @@ func _input(_ev):
 	
 	# Start time -> Start the games
 	if Input.is_key_pressed(KEY_K):
+		if stageRunning:
+			return
+		stageRunning = true
 		stage_GO()
 		$"Start Text".hide()
 		
