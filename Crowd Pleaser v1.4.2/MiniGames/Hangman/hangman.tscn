@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg2k1vujfgla8"]
+[gd_scene load_steps=11 format=3 uid="uid://bg2k1vujfgla8"]
 
 [ext_resource type="Script" uid="uid://rao5s1p7eo2b" path="res://MiniGames/Hangman/hangman.gd" id="1_add1w"]
 [ext_resource type="AudioStream" uid="uid://bbl0ssoejcg0y" path="res://Sounds/tada.wav" id="2_f5fg1"]
@@ -7,6 +7,22 @@
 [ext_resource type="AudioStream" uid="uid://bwjlxpgsn3w86" path="res://Sounds/Aquire.wav" id="4_ayhfn"]
 [ext_resource type="AudioStream" uid="uid://bk6mogk22tf33" path="res://Sounds/retro-video-game-sfx-fail.wav" id="5_tpfc3"]
 [ext_resource type="Texture2D" uid="uid://bwrvv1l0erliq" path="res://Assets/hang_guy_background.PNG" id="8_3622x"]
+[ext_resource type="Texture2D" uid="uid://dyi7m05x5753l" path="res://Assets/keyboard1.tres" id="8_kveaa"]
+[ext_resource type="Texture2D" uid="uid://wp6om7sbhxvk" path="res://Assets/keyboard2.tres" id="9_m8gb6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chbt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kveaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_m8gb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="Hangman" type="Node2D"]
 script = ExtResource("1_add1w")
@@ -117,3 +133,10 @@ grow_vertical = 2
 scale = Vector2(10, 10)
 texture = ExtResource("8_3622x")
 stretch_mode = 5
+
+[node name="HangKey" type="AnimatedSprite2D" parent="."]
+position = Vector2(1336, 242)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_chbt5")
+autoplay = "default"
+frame_progress = 0.843606

@@ -7,6 +7,9 @@ extends CharacterBody2D
 var can_take_damage = true
 signal been_hit
 
+@onready var HitTextur = load("res://Assets/cry.tres")
+@onready var AliveTextur = load("res://Assets/guy.tres")
+
 # Implement movement borders
 func get_input():
 	var input_dir = Input.get_vector("left", "right", "up", "down")
@@ -23,14 +26,19 @@ func take_damage():
 		hp -= 1
 		$TomHitSfx.play()
 		print("ow")
+		
+		#Sprite change
+		$AnimatedSprite2D.texture = HitTextur
+		
 		been_hit.emit()
 		
 		# Start the cooldown timer after taking damage
 		$DamageCooldown.start()
 
 		# Check if HP reaches zero
-		if hp <= 0:
-			game_over()
+		game_over()
+		#if hp <= 0:
+			#game_over()
 	else:
 		return
 
@@ -42,10 +50,12 @@ func _on_damage_cooldown_timeout() -> void:
 func _ready():
 	hp = startHP
 	can_take_damage = true  # Reset immunity
+	$AnimatedSprite2D.texture = AliveTextur
 
 # Game over logic
 func game_over():
 	print("Game Over!")
+	print(can_take_damage)
 	# You can implement additional game over logic here, such as:
 	# - Show a game over screen
 	# - Stop the game

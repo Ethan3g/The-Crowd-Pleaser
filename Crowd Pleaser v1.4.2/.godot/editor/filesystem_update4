@@ -6,5 +6,9 @@ res://MiniGames/Tomato/DodgeTomato/dodge_tomato.tscn
 res://MiniGames/Tomato/TomSpawner/bullet_spawner.tscn
 res://MiniGames/Wack/node_2d.tscn
 res://MiniGames/Hangman/hangman.tscn
+res://MiniGames/Tomato/Tomo/bullet.gd
+res://MiniGames/Tomato/Tomo/bullet.tscn
+res://MiniGames/Tomato/DodgeTomato/player_topdown.gd
+res://MiniGames/Tomato/tomato_game.gd
+res://Scripts/global.gd
 res://Scripts/stage.gd
-res://Scenes/AudioManager.gd

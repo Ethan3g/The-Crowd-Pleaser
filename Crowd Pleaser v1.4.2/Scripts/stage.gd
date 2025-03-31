@@ -89,6 +89,13 @@ func _ready() -> void:
 	
 	isMuted = false
 	
+	$NPCs/NPC1.position.x = -54
+	$NPCs/NPC2.position.x = -36
+	$NPCs/NPC3.position.x = -18
+	$NPCs/NPC4.position.x = 0
+	$NPCs/NPC5.position.x = 18
+	$NPCs/NPC6.position.x = 36
+	$NPCs/NPC7.position.x = 54
 
 
 func _process(delta: float) -> void:
@@ -174,6 +181,9 @@ func _on_timer_timeout() -> void:
 func miniDone() -> void:
 	var test = get_node("Audio Manager").get_script()
 	$"Audio Manager"._mini_done()
+	
+	# Audience member leaves
+	$NPCs/NPC1.position.x = -90
 
 func BenderDragonStart() -> void:
 	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
@@ -377,6 +387,12 @@ func _on_return_main_pressed() -> void:
 	# Gives time for sound to play
 	await get_tree().create_timer(0.25).timeout
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	
+	global.points = 0;
+	global.lives = 5;
+	global.done = false; 
+	global.prog = 0;
+	global.winstate = 0;
 	
 # Flips the mute button states (to with no X and with X)
 # Would have used toggle, but toggle doesn't support two hovers

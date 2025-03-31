@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://3dhme6ybutgj"]
+[gd_scene load_steps=145 format=3 uid="uid://3dhme6ybutgj"]
 
 [ext_resource type="Script" uid="uid://csmrxundg4b1f" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://b5qp0y11hh5j2" path="res://Assets/comedian.PNG" id="20_tgndy"]
 [ext_resource type="Texture2D" uid="uid://ce02uaqcv5xgn" path="res://Assets/guy2.tres" id="21_6l1kp"]
 [ext_resource type="Texture2D" uid="uid://dyi7m05x5753l" path="res://Assets/keyboard1.tres" id="22_gtqbe"]
+[ext_resource type="Texture2D" uid="uid://bk1yahqsmpct8" path="res://Assets/cry.tres" id="22_r1by4"]
 [ext_resource type="Texture2D" uid="uid://wp6om7sbhxvk" path="res://Assets/keyboard2.tres" id="23_dvlfu"]
 [ext_resource type="Texture2D" uid="uid://dp00tsv060pj6" path="res://Assets/WASD1.tres" id="24_r1by4"]
 [ext_resource type="Texture2D" uid="uid://d1xto4v3ediru" path="res://Assets/WASD2.tres" id="25_hw3y7"]
@@ -188,10 +189,6 @@ region = Rect2(96, 112, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xwhjh"]
 atlas = ExtResource("20_tgndy")
 region = Rect2(96, 96, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kwtgc"]
-atlas = ExtResource("20_tgndy")
-region = Rect2(112, 96, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_impr6"]
 atlas = ExtResource("20_tgndy")
@@ -351,7 +348,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_xwhjh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kwtgc")
+"texture": ExtResource("22_r1by4")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_impr6")
@@ -466,6 +463,20 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dvlfu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_3r5af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_e8vwu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xcq3k"]
@@ -750,10 +761,18 @@ volume_db = -7.924
 visible = false
 sprite_frames = SubResource("SpriteFrames_rq2xo")
 
+[node name="DragonMouse" type="AnimatedSprite2D" parent="BenderDragon"]
+position = Vector2(1367.84, 234)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_dvlfu")
+autoplay = "default"
+frame_progress = 0.683084
+
 [node name="Stage" type="Sprite2D" parent="."]
 position = Vector2(800, 500)
 scale = Vector2(10, 10)
 texture = ExtResource("35_ba0qs")
+metadata/_edit_lock_ = true
 
 [node name="Start Text" type="Label" parent="."]
 anchors_preset = 8
@@ -1023,6 +1042,13 @@ offset_bottom = 854.0
 mouse_filter = 2
 texture = ExtResource("58_1ydbe")
 
+[node name="RPSMouse" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(1356, 236)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_dvlfu")
+autoplay = "default"
+frame_progress = 0.686326
+
 [node name="Hangman" parent="." instance=ExtResource("17_o3wyr")]
 visible = false
 
@@ -1032,6 +1058,7 @@ visible = false
 visible = false
 
 [node name="Lives" type="Label" parent="."]
+visible = false
 offset_left = 42.0
 offset_top = -8.0
 offset_right = 270.0
@@ -1040,6 +1067,7 @@ text = "Lives: 5"
 label_settings = SubResource("LabelSettings_mc0ed")
 
 [node name="Points" type="Label" parent="."]
+visible = false
 offset_left = 1323.0
 offset_top = -6.0
 offset_right = 1620.0
@@ -1057,10 +1085,10 @@ label_settings = SubResource("LabelSettings_5jpcn")
 
 [node name="WinorLose" type="Label" parent="."]
 visible = false
-offset_left = 519.0
-offset_top = 404.0
-offset_right = 1143.0
-offset_bottom = 533.0
+offset_left = 521.0
+offset_top = 196.0
+offset_right = 1145.0
+offset_bottom = 325.0
 text = "You're Winner!"
 label_settings = SubResource("LabelSettings_8rh5o")
 horizontal_alignment = 1
@@ -1070,6 +1098,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Instruction Panel" type="Node2D" parent="."]
+visible = false
 position = Vector2(802, 473)
 scale = Vector2(0.55, 0.55)
 

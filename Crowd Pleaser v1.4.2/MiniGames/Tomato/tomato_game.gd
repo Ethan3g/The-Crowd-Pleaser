@@ -31,6 +31,8 @@ func _on_timer_timeout() -> void:
 	print("time's up!")
 	$WinSfx.play()
 	$GameTimer.stop()
+	
+	$player_topdown.can_take_damage = false
 	global.points += 1
 	global.winstate = 1
 	gameDone.emit()
