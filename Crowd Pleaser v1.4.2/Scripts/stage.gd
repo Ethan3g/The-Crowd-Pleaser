@@ -289,6 +289,13 @@ func randomizer() -> void:
 		random = rng.randi_range(1, 5)
 	stored = random
 
+func game_done() -> void:
+	if global.points == 5:
+		if global.points >= 3:
+			print("Winner!") #Todo: Make game end when either one happens.
+		else:
+			print("Loser!")
+
 # Update progression lights
 func update_lights() -> void:
 	var current_light
@@ -340,6 +347,7 @@ func update_lights() -> void:
 	
 	global.prog += 1
 	randomizer()
+	game_done()
 
 func _on_return_main_pressed() -> void:
 	print("Menu")
