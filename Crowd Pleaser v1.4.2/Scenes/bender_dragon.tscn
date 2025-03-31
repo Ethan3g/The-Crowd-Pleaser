@@ -491,6 +491,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_81sya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81sya")
 }],
 "loop": true,
 "name": &"default",

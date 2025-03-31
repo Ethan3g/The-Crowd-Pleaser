@@ -45,6 +45,7 @@ func take_damage():
 # This function gets triggered when the DamageCooldown timer finishes
 func _on_damage_cooldown_timeout() -> void:
 	can_take_damage = true
+	
 
 # Reset HP and invincibility flag when the player is initialized or the scene is restarted
 func _ready():

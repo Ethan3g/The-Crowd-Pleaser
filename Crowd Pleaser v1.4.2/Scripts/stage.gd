@@ -183,7 +183,43 @@ func miniDone() -> void:
 	$"Audio Manager"._mini_done()
 	
 	# Audience member leaves
-	$NPCs/NPC1.position.x = -90
+	if global.winstate == -1:
+		if global.lives == 4:
+			var x = -54
+			var y = -36
+			var z = - 18
+			
+			while x > -90:
+				x = x - 1
+				y = y - 1.5
+				z = z - 2
+				$NPCs/NPC1.position.x = x
+				$NPCs/NPC2.position.x = y
+				$NPCs/NPC3.position.x = z
+				await get_tree().create_timer(0.02).timeout
+			
+		if global.lives == 3:
+			var x = 18
+			var y = 36
+			var z = 54
+			
+			while x < 90:
+				x = x + 2
+				y = y + 1.5
+				z = z + 1
+				$NPCs/NPC5.position.x = x
+				$NPCs/NPC6.position.x = y
+				$NPCs/NPC7.position.x = z
+				await get_tree().create_timer(0.02).timeout
+				
+		if global.lives == 2:
+			var x = 0
+			
+			while x > -90:
+				x = x - 2.5
+				$NPCs/NPC4.position.x = x
+				await get_tree().create_timer(0.02).timeout
+	#$NPCs/NPC1.position.x = -90
 
 func BenderDragonStart() -> void:
 	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
