@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cdwsgkhmhdmr7"]
+[gd_scene load_steps=33 format=3 uid="uid://cdwsgkhmhdmr7"]
 
 [ext_resource type="Script" uid="uid://xn3cqogo0ihe" path="res://Scenes/menu.gd" id="1_bnmbb"]
 [ext_resource type="Texture2D" uid="uid://pw7pyhimcd3o" path="res://Menu/Main Menu BG.png" id="2_00436"]
@@ -8,14 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://dwbagu0336dea" path="res://Menu/StartHov.tres" id="5_6hkqq"]
 [ext_resource type="Texture2D" uid="uid://cc502rxhxfsqv" path="res://Menu/CreditIdle.tres" id="6_q6fgt"]
 [ext_resource type="Texture2D" uid="uid://bnvxrtswirwa6" path="res://Menu/CreditClick.tres" id="7_5mqw3"]
+[ext_resource type="Texture2D" uid="uid://dj1qy4epdwl3w" path="res://Menu/crowd_startText.png" id="7_pde1v"]
 [ext_resource type="Texture2D" uid="uid://dkca0r588x8q5" path="res://Menu/CreditHov.tres" id="8_c11jv"]
 [ext_resource type="Texture2D" uid="uid://jy6h23w41vj3" path="res://Menu/QuitIdle.tres" id="9_uwgos"]
 [ext_resource type="Texture2D" uid="uid://orss8vskrsiu" path="res://Menu/QuitClick.tres" id="10_wb156"]
 [ext_resource type="Texture2D" uid="uid://dtmgcvgmydpji" path="res://Menu/QuitHover.tres" id="11_3qtpb"]
+[ext_resource type="Texture2D" uid="uid://dkkd2dspmw6os" path="res://Menu/crowd_creditslabel.png" id="11_x0760"]
 [ext_resource type="Texture2D" uid="uid://cgrfdhnmxi2cp" path="res://Menu/ReturnIdle.tres" id="12_44kdy"]
 [ext_resource type="Texture2D" uid="uid://bi8weaybligag" path="res://Menu/ReturnHov.tres" id="13_0s4ya"]
 [ext_resource type="Texture2D" uid="uid://ctwiy31gn2grt" path="res://Menu/ReturnClick.tres" id="14_6mvqt"]
 [ext_resource type="Texture2D" uid="uid://ijvt1kwky005" path="res://Menu/CreditBG.png" id="15_dgj8l"]
+[ext_resource type="Texture2D" uid="uid://b1dnx8hl5pb8x" path="res://Menu/crowd_quitlabel.png" id="15_lvy56"]
 [ext_resource type="Texture2D" uid="uid://cn27tg2vg6ohv" path="res://Assets/NoMuteIdle.tres" id="16_8yx3d"]
 [ext_resource type="Texture2D" uid="uid://dtfmvuik2i5q8" path="res://Assets/NoMuteHov.tres" id="17_xvwup"]
 [ext_resource type="Texture2D" uid="uid://do8k805lf5ern" path="res://Assets/MuteIdle.tres" id="18_y20eb"]
@@ -125,6 +128,11 @@ texture_pressed = ExtResource("4_dpu6p")
 texture_hover = ExtResource("5_6hkqq")
 stretch_mode = 3
 
+[node name="Start" type="Sprite2D" parent="StartButton"]
+position = Vector2(29.9, 13.6)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_pde1v")
+
 [node name="CreditButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1090.0
@@ -137,6 +145,11 @@ texture_pressed = ExtResource("7_5mqw3")
 texture_hover = ExtResource("8_c11jv")
 stretch_mode = 3
 
+[node name="Credit" type="Sprite2D" parent="CreditButton"]
+position = Vector2(15, 7.9)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_x0760")
+
 [node name="QuitButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1100.0
@@ -148,6 +161,11 @@ texture_normal = ExtResource("9_uwgos")
 texture_pressed = ExtResource("10_wb156")
 texture_hover = ExtResource("11_3qtpb")
 stretch_mode = 3
+
+[node name="Quit" type="Sprite2D" parent="QuitButton"]
+position = Vector2(14.1, 7.6)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_lvy56")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -173,6 +191,11 @@ texture_normal = ExtResource("12_44kdy")
 texture_pressed = ExtResource("14_6mvqt")
 texture_hover = ExtResource("13_0s4ya")
 stretch_mode = 3
+
+[node name="Credit title" type="Sprite2D" parent="Credits"]
+position = Vector2(800, 91)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("11_x0760")
 
 [node name="Audio Mang" type="Node2D" parent="."]
 script = ExtResource("24_nakb8")

@@ -87,3 +87,10 @@ func _mini_done() -> void:
 		
 		if !isMute:
 			$StageBGMusic.volume_db = StageMusVol
+
+
+func _on_start_stage_pressed() -> void:
+	$ButtonClick.play()
+	
+	await get_tree().create_timer(0.1).timeout
+	$Stinger.play()

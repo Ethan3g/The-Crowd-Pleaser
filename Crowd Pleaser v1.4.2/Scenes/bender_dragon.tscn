@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://3dhme6ybutgj"]
+[gd_scene load_steps=144 format=3 uid="uid://3dhme6ybutgj"]
 
 [ext_resource type="Script" uid="uid://csmrxundg4b1f" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
@@ -47,6 +47,12 @@
 [ext_resource type="Texture2D" uid="uid://dib8nd2oi2m6b" path="res://Assets/guy.tres" id="19_vui1d"]
 [ext_resource type="Texture2D" uid="uid://b5qp0y11hh5j2" path="res://Assets/comedian.PNG" id="20_tgndy"]
 [ext_resource type="Texture2D" uid="uid://ce02uaqcv5xgn" path="res://Assets/guy2.tres" id="21_6l1kp"]
+[ext_resource type="Texture2D" uid="uid://dyi7m05x5753l" path="res://Assets/keyboard1.tres" id="22_gtqbe"]
+[ext_resource type="Texture2D" uid="uid://wp6om7sbhxvk" path="res://Assets/keyboard2.tres" id="23_dvlfu"]
+[ext_resource type="Texture2D" uid="uid://dp00tsv060pj6" path="res://Assets/WASD1.tres" id="24_r1by4"]
+[ext_resource type="Texture2D" uid="uid://d1xto4v3ediru" path="res://Assets/WASD2.tres" id="25_hw3y7"]
+[ext_resource type="Texture2D" uid="uid://rjploga6nx8d" path="res://Assets/Mouse1.tres" id="26_3r5af"]
+[ext_resource type="Texture2D" uid="uid://tq651j1k6msd" path="res://Assets/Mouse2.tres" id="27_e8vwu"]
 [ext_resource type="AudioStream" uid="uid://yvm8bfd12tt1" path="res://Sounds/490253__anomaex__sci-fi_explosion.wav" id="30_8rh5o"]
 [ext_resource type="Texture2D" uid="uid://d3150uyc8ufov" path="res://Stage Assets/Light rail.png" id="33_wbmb1"]
 [ext_resource type="Texture2D" uid="uid://dnk5rcdpapdi2" path="res://Art Assets/Backgrounds/Stage/stage.PNG" id="35_ba0qs"]
@@ -69,6 +75,11 @@
 [ext_resource type="AudioStream" uid="uid://b3h30b37w6y0w" path="res://Sounds/242241__ehohnke__shortsoftchuckle1.wav" id="66_r3sj4"]
 [ext_resource type="AudioStream" uid="uid://bl1ife7pjn3au" path="res://Sounds/656116__itsthegoodstuff__crickets_1.wav" id="67_r3sj4"]
 [ext_resource type="AudioStream" uid="uid://d3hojyku4uvss" path="res://Sounds/ButtonHoverAudio.wav" id="68_8hbbn"]
+[ext_resource type="Texture2D" uid="uid://d0h5n3fgruynt" path="res://Assets/Instructions.png" id="68_32fif"]
+[ext_resource type="Texture2D" uid="uid://6hsli6d8xt11" path="res://Menu/StartIdle.tres" id="69_nha6a"]
+[ext_resource type="Texture2D" uid="uid://cnaof16rmwvxa" path="res://Menu/StartClick.tres" id="70_t2pe0"]
+[ext_resource type="Texture2D" uid="uid://dwbagu0336dea" path="res://Menu/StartHov.tres" id="71_knmes"]
+[ext_resource type="Texture2D" uid="uid://dj1qy4epdwl3w" path="res://Menu/crowd_startText.png" id="72_dvlfu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wbb4"]
 atlas = ExtResource("9_pkfj5")
@@ -344,6 +355,24 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_impr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_gtqbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_dvlfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_r1by4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_hw3y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_3r5af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_e8vwu")
 }],
 "loop": true,
 "name": &"new_animation_2",
@@ -1040,6 +1069,41 @@ horizontal_alignment = 1
 wait_time = 5.0
 one_shot = true
 
+[node name="Instruction Panel" type="Node2D" parent="."]
+position = Vector2(802, 473)
+scale = Vector2(0.55, 0.55)
+
+[node name="Instruction" type="Sprite2D" parent="Instruction Panel"]
+texture = ExtResource("68_32fif")
+
+[node name="mouse" type="Sprite2D" parent="Instruction Panel"]
+position = Vector2(-494.545, 432.727)
+texture = ExtResource("26_3r5af")
+
+[node name="keyboard" type="Sprite2D" parent="Instruction Panel"]
+position = Vector2(-767.273, 332.727)
+texture = ExtResource("22_gtqbe")
+
+[node name="WASD" type="Sprite2D" parent="Instruction Panel"]
+position = Vector2(-207.273, 383.636)
+texture = ExtResource("24_r1by4")
+
+[node name="StartStage" type="TextureButton" parent="Instruction Panel"]
+offset_left = 321.818
+offset_top = 240.0
+offset_right = 381.818
+offset_bottom = 267.0
+scale = Vector2(10, 10)
+texture_normal = ExtResource("69_nha6a")
+texture_pressed = ExtResource("70_t2pe0")
+texture_hover = ExtResource("71_knmes")
+stretch_mode = 3
+
+[node name="StartTitle" type="Sprite2D" parent="Instruction Panel/StartStage"]
+position = Vector2(30.5455, 13.4545)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("72_dvlfu")
+
 [node name="Audio Manager" type="Node2D" parent="."]
 script = ExtResource("62_8rh5o")
 
@@ -1086,3 +1150,5 @@ volume_db = -2.0
 [connection signal="pressed" from="Control/HBoxContainer/ScissorsButton" to="Control" method="_on_scissors_button_pressed"]
 [connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
 [connection signal="timeout" from="StageTimer" to="Audio Manager" method="_on_stage_timer_timeout"]
+[connection signal="pressed" from="Instruction Panel/StartStage" to="." method="_on_start_stage_pressed"]
+[connection signal="pressed" from="Instruction Panel/StartStage" to="Audio Manager" method="_on_start_stage_pressed"]

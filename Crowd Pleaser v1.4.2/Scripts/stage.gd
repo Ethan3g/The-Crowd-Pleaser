@@ -78,6 +78,8 @@ func _ready() -> void:
 	
 	timer_node.timeout.connect(_on_timer_timeout)
 	
+	$"Instruction Panel".visible = true
+	$"Instruction Panel/StartStage".disabled = false
 	
 	# Hehe more stuff for signals -> hooked up to methods
 	RPS_signal.gameDone.connect(_on_RpsEnd)
@@ -94,6 +96,18 @@ func _process(delta: float) -> void:
 	lives_Label.text = "Lives: " + str(global.lives)
 	points_Label.text = "Points: " + str(global.points)
 	timer_Label.text = "Time: " + str(ceil(timer_node.time_left))
+	
+func _on_start_stage_pressed() -> void:
+	print("Start")
+	if stageRunning:
+		return
+		
+	await get_tree().create_timer(0.25).timeout
+	$"Instruction Panel".visible = false
+	$"Instruction Panel/StartStage".disabled = true
+	stageRunning = true
+	stage_GO()
+	$"Start Text".hide()
 
 func _input(_ev):
 	# Debugging stuff, not to be used in the actual game loop
@@ -102,11 +116,12 @@ func _input(_ev):
 	
 	# Start time -> Start the games
 	if Input.is_key_pressed(KEY_K):
-		if stageRunning:
-			return
-		stageRunning = true
-		stage_GO()
-		$"Start Text".hide()
+		pass
+		#if stageRunning:
+		#	return
+		#stageRunning = true
+		#stage_GO()
+		#$"Start Text".hide()
 		
 	if Input.is_key_pressed(KEY_1):
 		RpsStart()
