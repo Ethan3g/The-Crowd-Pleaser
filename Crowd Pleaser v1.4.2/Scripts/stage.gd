@@ -290,11 +290,17 @@ func randomizer() -> void:
 	stored = random
 
 func game_done() -> void:
-	if global.points == 5:
+	if global.prog == 5:
 		if global.points >= 3:
 			print("Winner!") #Todo: Make game end when either one happens.
-		else:
+			$StageTimer.set_paused(true)
+			$WinorLose.text = "You're Winner!"
+			$WinorLose.visible = true
+		elif global.points <= 2:
 			print("Loser!")
+			$StageTimer.set_paused(true)
+			$WinorLose.text = "You Have Died!"
+			$WinorLose.visible = true
 
 # Update progression lights
 func update_lights() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://3dhme6ybutgj"]
+[gd_scene load_steps=133 format=3 uid="uid://3dhme6ybutgj"]
 
 [ext_resource type="Script" uid="uid://csmrxundg4b1f" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
@@ -577,6 +577,10 @@ font_color = Color(1, 1, 0, 1)
 font_size = 60
 font_color = Color(1, 1, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_8rh5o"]
+font_size = 80
+font_color = Color(1, 1, 0, 1)
+
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_bpe5g")
 
@@ -1021,6 +1025,16 @@ offset_right = 621.0
 offset_bottom = 987.0
 text = "Time: "
 label_settings = SubResource("LabelSettings_5jpcn")
+
+[node name="WinorLose" type="Label" parent="."]
+visible = false
+offset_left = 519.0
+offset_top = 404.0
+offset_right = 1143.0
+offset_bottom = 533.0
+text = "You're Winner!"
+label_settings = SubResource("LabelSettings_8rh5o")
+horizontal_alignment = 1
 
 [node name="StageTimer" type="Timer" parent="."]
 wait_time = 5.0
