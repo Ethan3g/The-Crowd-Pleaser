@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://3dhme6ybutgj"]
+[gd_scene load_steps=146 format=3 uid="uid://3dhme6ybutgj"]
 
 [ext_resource type="Script" uid="uid://csmrxundg4b1f" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
@@ -481,9 +481,6 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_xcq3k"]
-font_size = 60
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_81sya"]
 atlas = ExtResource("36_1ydbe")
 region = Rect2(64, 0, 16, 16)
@@ -778,23 +775,6 @@ position = Vector2(800, 500)
 scale = Vector2(10, 10)
 texture = ExtResource("35_ba0qs")
 metadata/_edit_lock_ = true
-
-[node name="Start Text" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 600.0
-offset_top = 200.0
-offset_right = 1035.0
-offset_bottom = 283.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Press K to start"
-label_settings = SubResource("LabelSettings_xcq3k")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="NPCs" type="Sprite2D" parent="."]
 position = Vector2(800, 500)

@@ -129,7 +129,7 @@ func _on_start_stage_pressed() -> void:
 	$"Instruction Panel/StartStage".disabled = true
 	stageRunning = true
 	stage_GO()
-	$"Start Text".hide()
+	#$"Start Text".hide()
 
 func _input(_ev):
 	# Debugging stuff, not to be used in the actual game loop
