@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Crowd Pleaser_Test"
-run/main_scene="res://Scenes/bender_dragon.tscn"
+run/main_scene="uid://cdwsgkhmhdmr7"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

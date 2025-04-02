@@ -146,38 +146,49 @@ func _input(_ev):
 		#$"Start Text".hide()
 		
 	if Input.is_key_pressed(KEY_1):
-		RpsStart()
+		pass
+		#RpsStart()
 		
 	if Input.is_key_pressed(KEY_2):
-		RpsEnd()
+		pass
+		#RpsEnd()
 		
 	if Input.is_key_pressed(KEY_3):
-		HangStart()
+		pass
+		#HangStart()
 	
 	if Input.is_key_pressed(KEY_4):
-		HangEnd()
+		pass
+		#HangEnd()
 		
 	if Input.is_key_pressed(KEY_5):
-		WackStart()
+		pass
+		#WackStart()
 	
 	if Input.is_key_pressed(KEY_6):
-		WackEnd()
+		pass
+		#WackEnd()
 		
 	if Input.is_key_pressed(KEY_7):
-		TomStart()
+		pass
+		#TomStart()
 	
 	if Input.is_key_pressed(KEY_8):
-		TomEnd()
+		pass
+		#TomEnd()
 
 # Calls the start of stage timer (will be more than just timer)
 # Will also include later the start of the dialogue section
 func stage_GO() -> void:
 	# global winstate -> if 1, will be succeed, if -1, is lost
+	$TimerLabel.visible = true
 	print("Stage go")
 	timer_node.start(timer_amt)
 
 # When timer runs out, depending on the current minigame, next one is started
 func _on_timer_timeout() -> void:
+	
+	$TimerLabel.visible = false
 	
 	current_minig = random
 		
@@ -367,6 +378,8 @@ func randomizer() -> void:
 
 func game_done() -> void:
 	if global.prog == 5:
+		$TimerLabel.visible = false
+		
 		if global.points >= 3:
 			print("Winner!") #Todo: Make game end when either one happens.
 			$StageTimer.set_paused(true)

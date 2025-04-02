@@ -1,4 +1,5 @@
 res://Scenes/bender_dragon.tscn
 res://MiniGames/Wack/WackArt/WackHit.tres
 res://MiniGames/Tomato/tomato_game.tscn
-res://MiniGames/Tomato/DodgeTomato/player_topdown.gd
+res://Scripts/stage.gd
+res://Scenes/menu.tscn
