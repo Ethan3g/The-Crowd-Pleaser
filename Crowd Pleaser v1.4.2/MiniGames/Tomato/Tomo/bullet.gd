@@ -4,7 +4,7 @@ extends Area2D
 # https://youtu.be/AnQCs_qgp1c?si=YQPHXTk9lGUN4XSh
 # made it to 14 minutes
 
-@export var speed := 200
+@export var speed := 300
 @export var lifetime := 10.0
 @export var velocity = Vector2()
 @export var use_velocity = false

@@ -11,7 +11,10 @@ var bendGoing = false
 @onready var WACKnode = get_node("target_control/CanvasLayer")
 @onready var TOMnode = get_node("TomatoGame")
 @onready var BULnode = get_node("TomatoGame/BulletSpawner")
+@export var timer_bar: TextureProgressBar
+@export var max_time: float = 5.0 # Total duration of the timer
 
+var time_left: float
 var lives_Label: Label
 var points_Label: Label
 var timer_Label: Label
@@ -61,6 +64,11 @@ var muteHov = load("res://Assets/MuteHov.tres")
 
 var audio_stage
 
+# Using to disable 'K' input (during hangman)
+var stageRunning = false
+# Can probably have a 'if stageRunning == true and minigame completed = 5, trigger ending part
+	# Sees if win or loose
+
 func _ready() -> void:
 	lives_Label = $Lives
 	points_Label = $Points
@@ -73,6 +81,8 @@ func _ready() -> void:
 	
 	timer_node.timeout.connect(_on_timer_timeout)
 	
+	$"Instruction Panel".visible = true
+	$"Instruction Panel/StartStage".disabled = false
 	
 	# Hehe more stuff for signals -> hooked up to methods
 	RPS_signal.gameDone.connect(_on_RpsEnd)
@@ -82,6 +92,19 @@ func _ready() -> void:
 	
 	isMuted = false
 	
+	$NPCs/NPC1.position.x = -54
+	$NPCs/NPC2.position.x = -36
+	$NPCs/NPC3.position.x = -18
+	$NPCs/NPC4.position.x = 0
+	$NPCs/NPC5.position.x = 18
+	$NPCs/NPC6.position.x = 36
+	$NPCs/NPC7.position.x = 54
+	
+	#time_left = max_time
+	#if timer_bar:
+		#timer_bar.max_value = max_time
+		#timer_bar.value = max_time
+		#timer_bar.fill_mode = TextureProgressBar.FILL_TOP_TO_BOTTOM
 
 
 func _process(delta: float) -> void:
@@ -89,6 +112,24 @@ func _process(delta: float) -> void:
 	lives_Label.text = "Lives: " + str(global.lives)
 	points_Label.text = "Points: " + str(global.points)
 	timer_Label.text = "Time: " + str(ceil(timer_node.time_left))
+	
+	#if time_left > 0:
+		#time_left -= delta
+		#timer_bar.value = time_left
+	#else:
+		#timer_bar.value = 0  # Ensure it doesn't go negative
+
+func _on_start_stage_pressed() -> void:
+	print("Start")
+	if stageRunning:
+		return
+		
+	await get_tree().create_timer(0.25).timeout
+	$"Instruction Panel".visible = false
+	$"Instruction Panel/StartStage".disabled = true
+	stageRunning = true
+	stage_GO()
+	$"Start Text".hide()
 
 func _input(_ev):
 	# Debugging stuff, not to be used in the actual game loop
@@ -97,8 +138,12 @@ func _input(_ev):
 	
 	# Start time -> Start the games
 	if Input.is_key_pressed(KEY_K):
-		stage_GO()
-		$"Start Text".hide()
+		pass
+		#if stageRunning:
+		#	return
+		#stageRunning = true
+		#stage_GO()
+		#$"Start Text".hide()
 		
 	if Input.is_key_pressed(KEY_1):
 		RpsStart()
@@ -151,6 +196,45 @@ func _on_timer_timeout() -> void:
 func miniDone() -> void:
 	var test = get_node("Audio Manager").get_script()
 	$"Audio Manager"._mini_done()
+	
+	# Audience member leaves
+	if global.winstate == -1:
+		if global.lives == 4:
+			var x = -54
+			var y = -36
+			var z = - 18
+			
+			while x > -90:
+				x = x - 1
+				y = y - 1.5
+				z = z - 2
+				$NPCs/NPC1.position.x = x
+				$NPCs/NPC2.position.x = y
+				$NPCs/NPC3.position.x = z
+				await get_tree().create_timer(0.02).timeout
+			
+		if global.lives == 3:
+			var x = 18
+			var y = 36
+			var z = 54
+			
+			while x < 90:
+				x = x + 2
+				y = y + 1.5
+				z = z + 1
+				$NPCs/NPC5.position.x = x
+				$NPCs/NPC6.position.x = y
+				$NPCs/NPC7.position.x = z
+				await get_tree().create_timer(0.02).timeout
+				
+		if global.lives == 2:
+			var x = 0
+			
+			while x > -90:
+				x = x - 2.5
+				$NPCs/NPC4.position.x = x
+				await get_tree().create_timer(0.02).timeout
+	#$NPCs/NPC1.position.x = -90
 
 func BenderDragonStart() -> void:
 	$Stage.self_modulate = Color(0.5, 0.5, 0.5)
@@ -281,6 +365,19 @@ func randomizer() -> void:
 		random = rng.randi_range(1, 5)
 	stored = random
 
+func game_done() -> void:
+	if global.prog == 5:
+		if global.points >= 3:
+			print("Winner!") #Todo: Make game end when either one happens.
+			$StageTimer.set_paused(true)
+			$WinorLose.text = "You're Winner!"
+			$WinorLose.visible = true
+		elif global.points <= 2:
+			print("Loser!")
+			$StageTimer.set_paused(true)
+			$WinorLose.text = "You Have Died!"
+			$WinorLose.visible = true
+
 # Update progression lights
 func update_lights() -> void:
 	var current_light
@@ -332,6 +429,7 @@ func update_lights() -> void:
 	
 	global.prog += 1
 	randomizer()
+	game_done()
 
 func _on_return_main_pressed() -> void:
 	print("Menu")
@@ -340,6 +438,12 @@ func _on_return_main_pressed() -> void:
 	# Gives time for sound to play
 	await get_tree().create_timer(0.25).timeout
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	
+	global.points = 0;
+	global.lives = 5;
+	global.done = false; 
+	global.prog = 0;
+	global.winstate = 0;
 	
 # Flips the mute button states (to with no X and with X)
 # Would have used toggle, but toggle doesn't support two hovers

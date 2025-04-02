@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
-# Movement speed in pixels per second.
 @export var speed = 300
 @export var startHP = 3
 @onready var hp = startHP
 var can_take_damage = true
 signal been_hit
 
-# Implement movement borders
+@onready var HitTextur = load("res://Assets/cry.tres")
+@onready var AliveTextur = load("res://Assets/guy.tres")
+
 func get_input():
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	velocity = input_dir * speed
@@ -16,37 +17,48 @@ func _physics_process(delta):
 	get_input()
 	move_and_collide(velocity * delta)
 
-# Called when the player takes damage
 func take_damage():
 	if can_take_damage:
+		print("Player took damage!")  # Debugging message
 		can_take_damage = false
 		hp -= 1
 		$TomHitSfx.play()
-		print("ow")
+		
+		# Sprite change
+		$AnimatedSprite2D.texture = HitTextur
 		been_hit.emit()
 		
-		# Start the cooldown timer after taking damage
+		# Start cooldown timer
 		$DamageCooldown.start()
-
+		
 		# Check if HP reaches zero
-		if hp <= 0:
-			game_over()
+		game_over()
 	else:
-		return
+		print("Player is immune and can't take damage.")  # Debugging message
 
-# This function gets triggered when the DamageCooldown timer finishes
 func _on_damage_cooldown_timeout() -> void:
+	print("Damage cooldown ended, can take damage again!")  # Debugging message
 	can_take_damage = true
 
-# Reset HP and invincibility flag when the player is initialized or the scene is restarted
 func _ready():
+	print("Player initialized, resetting damage immunity.")  # Debugging message
 	hp = startHP
-	can_take_damage = true  # Reset immunity
+	can_take_damage = true  # Ensure damage can be taken
+	$AnimatedSprite2D.texture = AliveTextur
+	
+	# Reset the cooldown timer
+	$DamageCooldown.stop()
+	
+	# Ensure the timer is properly connected
+	if not $DamageCooldown.timeout.is_connected(_on_damage_cooldown_timeout):
+		$DamageCooldown.timeout.connect(_on_damage_cooldown_timeout, CONNECT_DEFERRED)
 
-# Game over logic
 func game_over():
 	print("Game Over!")
-	# You can implement additional game over logic here, such as:
-	# - Show a game over screen
-	# - Stop the game
-	# - Restart the scene, etc.
+	print("Can Take Damage Before Reset:", can_take_damage)  # Debugging message
+	
+	# Manually reset before reloading
+	can_take_damage = true  
+	
+	# Reload the scene to fully reset
+	get_tree().reload_current_scene()

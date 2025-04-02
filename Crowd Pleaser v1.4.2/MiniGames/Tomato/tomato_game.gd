@@ -7,6 +7,8 @@ var max_x = 990
 var min_y = 375
 var max_y = 750
 
+@onready var AliveTextur = load("res://Assets/guy.tres")
+
 func _ready() -> void:
 	pass
 
@@ -16,6 +18,7 @@ func _process(delta: float) -> void:
 	player.position.y = clamp(player.position.y, min_y, max_y)
 
 func tomato_start() -> void:
+	$player_topdown/AnimatedSprite2D.texture = AliveTextur
 	$GameTimer.start(8.0)
 	print("GO")
 
@@ -31,6 +34,8 @@ func _on_timer_timeout() -> void:
 	print("time's up!")
 	$WinSfx.play()
 	$GameTimer.stop()
+	
+	$player_topdown.can_take_damage = false
 	global.points += 1
 	global.winstate = 1
 	gameDone.emit()

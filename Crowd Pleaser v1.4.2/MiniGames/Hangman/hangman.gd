@@ -9,11 +9,13 @@ var guessed_letters = []  # List of correct guesses
 var incorrect_letters = []  # List of incorrect guesses
 
 var hangman_sprite: Sprite2D
+#var hangman_sprite = $HangManSprite
 var word_label: Label
 var incorrect_label: Label
 var attempts_label: Label
 var before_label: Label
 var word_list = ["HANGMAN", "LAUGH", "SMILE", "GAMING", "BOOOOOOOO", "STINTENDO"]
+
 
 # List of all letters (A to Z)
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
@@ -24,9 +26,13 @@ var fin = false;
 # signal to tell stage.gd that game is done
 signal gameDone
 
+var gameRunning = false;
+
 
 func _ready():
 	# Get references to the nodes
+	print("Hang Ready active")
+	
 	hangman_sprite = $HangManSprite
 	word_label = $WordLabel
 	incorrect_label = $IncorrectLabel
@@ -41,11 +47,16 @@ func _ready():
 		var texture = load("res://MiniGames/Hangman/HangmanArt/Hangman_man" + str(i) + ".png")
 		hangman_images.append(texture)
 
+	gameRunning = false;
 	# Start a new game
-	generate_new_word()
+	# generate_new_word()
 
 # Function to generate a new word for the game
 func generate_new_word():
+	
+	#print("Hangman is active")
+	gameRunning = true;
+	
 	# Reset the game state
 	current_word = word_list[randi() % word_list.size()]  # Pick a random word
 	guessed_letters = []
@@ -67,6 +78,8 @@ func generate_new_word():
 	# Start a 5 second timer before hiding the label (using await)
 	await get_tree().create_timer(5.0).timeout  # Wait for 5 seconds
 	before_label.visible = false  # Hide after 5 seconds
+	
+	#print("Hangman is active")
 
 # Function to reveal 1-2 random letters at the start
 func reveal_starting_letters():
@@ -113,6 +126,9 @@ func update_hangman_sprite():
 func _on_letter_pressed(letter: String):
 	if letter in guessed_letters or letter in incorrect_letters:
 		return  # Ignore if letter was already guessed
+		
+	if !gameRunning:
+		return
 
 	if letter in current_word:
 		# Letter is Correct
@@ -154,6 +170,9 @@ func check_game_over():
 		global.lives -= 1
 		
 		await get_tree().create_timer(3.0).timeout
+		
+		# May need to add a reset current word to ""
+		gameRunning = false
 		gameDone.emit()
 
 # Function to disable all buttons after the game ends
