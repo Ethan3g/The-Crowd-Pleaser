@@ -1,9 +1,9 @@
+Sprite2D
 RichTextLabel
 Label
 TextureProgressBar
 ProgressBar
 AnimatedSprite2D
-Sprite2D
 TextureButton
 Node2D
 Timer
@@ -12,4 +12,3 @@ CanvasLayer
 AudioStreamPlayer
 TextureRect
 Control
-Node

@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://3dhme6ybutgj"]
+[gd_scene load_steps=147 format=3 uid="uid://3dhme6ybutgj"]
 
 [ext_resource type="Script" uid="uid://csmrxundg4b1f" path="res://Scripts/stage.gd" id="1_bpe5g"]
 [ext_resource type="Texture2D" uid="uid://c7j5cv1i50ily" path="res://Assets/Dragon.png" id="1_ttvoe"]
@@ -64,10 +64,11 @@
 [ext_resource type="Texture2D" uid="uid://0ka7v7gbp15o" path="res://Art Assets/Characters/Protagonist/comedian.PNG" id="38_1ydbe"]
 [ext_resource type="Texture2D" uid="uid://1rv8ohbffshe" path="res://Assets/HomeIdle.tres" id="41_arhhx"]
 [ext_resource type="Texture2D" uid="uid://du08q1pjwmkt" path="res://Assets/HomeClick.tres" id="42_8tvr3"]
+[ext_resource type="Texture2D" uid="uid://bwp38s2yb8p7g" path="res://Assets/crowd_slay.png" id="42_e8vwu"]
 [ext_resource type="Texture2D" uid="uid://bvxvclss1scs6" path="res://Assets/HomeHov.tres" id="43_gdfwc"]
 [ext_resource type="Texture2D" uid="uid://cn27tg2vg6ohv" path="res://Assets/NoMuteIdle.tres" id="44_3hy1l"]
 [ext_resource type="Texture2D" uid="uid://dtfmvuik2i5q8" path="res://Assets/NoMuteHov.tres" id="45_0exir"]
-[ext_resource type="Texture2D" uid="uid://dq7351u0nuj6y" path="res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.PNG" id="58_1ydbe"]
+[ext_resource type="Texture2D" uid="uid://dq7351u0nuj6y" path="res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.png" id="58_1ydbe"]
 [ext_resource type="Script" uid="uid://yim8g05wpv5o" path="res://Scenes/AudioManager.gd" id="62_8rh5o"]
 [ext_resource type="AudioStream" uid="uid://dxvlvty35l22u" path="res://Sounds/390561__iut_paris8__alison_barreau_2016_2017_oldvideogame_1.wav" id="62_81sya"]
 [ext_resource type="AudioStream" uid="uid://b13s1ratnq2gg" path="res://Sounds/721503__baggonotes__button_click2_1.wav" id="63_se7ag"]
@@ -770,6 +771,10 @@ sprite_frames = SubResource("SpriteFrames_dvlfu")
 autoplay = "default"
 frame_progress = 0.683084
 
+[node name="SLAY" type="Sprite2D" parent="BenderDragon"]
+position = Vector2(1257.53, 429)
+texture = ExtResource("42_e8vwu")
+
 [node name="Stage" type="Sprite2D" parent="."]
 position = Vector2(800, 500)
 scale = Vector2(10, 10)
@@ -1147,7 +1152,7 @@ volume_db = -8.0
 
 [node name="LostAudio" type="AudioStreamPlayer" parent="Audio Manager"]
 stream = ExtResource("67_r3sj4")
-volume_db = -7.0
+volume_db = -10.0
 pitch_scale = 0.9
 
 [node name="Hov" type="AudioStreamPlayer" parent="Audio Manager"]

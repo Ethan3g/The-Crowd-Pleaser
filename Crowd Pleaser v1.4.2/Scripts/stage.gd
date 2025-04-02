@@ -181,7 +181,11 @@ func _input(_ev):
 # Will also include later the start of the dialogue section
 func stage_GO() -> void:
 	# global winstate -> if 1, will be succeed, if -1, is lost
-	$TimerLabel.visible = true
+	
+	# Possible bug with end screens, stuff my pop up over it?
+	if global.prog != 5:
+		$TimerLabel.visible = true
+		
 	print("Stage go")
 	timer_node.start(timer_amt)
 
@@ -208,6 +212,10 @@ func miniDone() -> void:
 	var test = get_node("Audio Manager").get_script()
 	$"Audio Manager"._mini_done()
 	
+	print("Audience leave")
+	print("Point: " + str(global.points))
+	print("Lives: " + str(global.lives))
+	print("Prog: " + str(global.prog))
 	# Audience member leaves
 	if global.winstate == -1:
 		if global.lives == 4:
@@ -379,17 +387,22 @@ func randomizer() -> void:
 func game_done() -> void:
 	if global.prog == 5:
 		$TimerLabel.visible = false
+		print($TimerLabel.visible)
 		
 		if global.points >= 3:
 			print("Winner!") #Todo: Make game end when either one happens.
+			$TimerLabel.visible = false
 			$StageTimer.set_paused(true)
 			$WinorLose.text = "You're Winner!"
 			$WinorLose.visible = true
+			# Toggle on win screen
 		elif global.points <= 2:
 			print("Loser!")
+			$TimerLabel.visible = false
 			$StageTimer.set_paused(true)
 			$WinorLose.text = "You Have Died!"
 			$WinorLose.visible = true
+			# Toggle on loose screen
 
 # Update progression lights
 func update_lights() -> void:

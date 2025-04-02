@@ -126,6 +126,10 @@ func determine_winner(player_choice: String, opponent_choice: String) -> String:
 	if player_choice == opponent_choice:
 		# Tied: No win
 		$NoWinSfx.play()
+		global.lives -= 1
+		global.winstate = -1
+		
+		print("Hangman Tied point and win-state in")
 		return "It's a tie!"
 	elif ((player_choice == "Rock" and opponent_choice == "Scissors") or
 		  (player_choice == "Scissors" and opponent_choice == "Paper") or

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fqqci2xlrn1"]
+[gd_scene load_steps=13 format=3 uid="uid://fqqci2xlrn1"]
 
 [ext_resource type="Script" uid="uid://cfg8lpfgm20kj" path="res://MiniGames/Wack/wack_letter.gd" id="1_ku4kd"]
 [ext_resource type="AudioStream" uid="uid://i2ytesq2a73c" path="res://Sounds/hitHurt.wav" id="2_mkkw5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bmc5074af1xe8" path="res://MiniGames/RPS/RPSart/dodgefruit_minigame.PNG" id="6_0nuae"]
 [ext_resource type="Texture2D" uid="uid://dyi7m05x5753l" path="res://Assets/keyboard1.tres" id="9_o7rhv"]
 [ext_resource type="Texture2D" uid="uid://wp6om7sbhxvk" path="res://Assets/keyboard2.tres" id="10_k01w1"]
+[ext_resource type="Texture2D" uid="uid://dcuct1154451l" path="res://Assets/crowd_hit.png" id="11_k01w1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wvyv"]
 animations = [{
@@ -399,6 +400,10 @@ position = Vector2(1347, 242)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_8wvyv")
 autoplay = "default"
+
+[node name="HIT" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1382, 405)
+texture = ExtResource("11_k01w1")
 
 [connection signal="timeout" from="CanvasLayer/HitTimer" to="CanvasLayer" method="_on_hit_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/HoldTimer" to="CanvasLayer" method="_on_hold_timer_timeout"]

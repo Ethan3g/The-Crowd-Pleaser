@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq7351u0nuj6y"
-path="res://.godot/imported/rock_paper_scissors_minigame.PNG-7fe454c01d6b41b61e087fd3f5d9c907.ctex"
+path="res://.godot/imported/rock_paper_scissors_minigame.png-bfb3c864183be2385d8a86e9a633d5a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.PNG"
-dest_files=["res://.godot/imported/rock_paper_scissors_minigame.PNG-7fe454c01d6b41b61e087fd3f5d9c907.ctex"]
+source_file="res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.png"
+dest_files=["res://.godot/imported/rock_paper_scissors_minigame.png-bfb3c864183be2385d8a86e9a633d5a8.ctex"]
 
 [params]
 
