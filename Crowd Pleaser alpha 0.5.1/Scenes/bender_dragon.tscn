@@ -68,7 +68,7 @@
 [ext_resource type="Texture2D" uid="uid://bvxvclss1scs6" path="res://Assets/HomeHov.tres" id="43_gdfwc"]
 [ext_resource type="Texture2D" uid="uid://cn27tg2vg6ohv" path="res://Assets/NoMuteIdle.tres" id="44_3hy1l"]
 [ext_resource type="Texture2D" uid="uid://dtfmvuik2i5q8" path="res://Assets/NoMuteHov.tres" id="45_0exir"]
-[ext_resource type="Texture2D" uid="uid://o3454l6gqiaa" path="res://Assets/IMG_4698.jpg" id="49_32fif"]
+[ext_resource type="Texture2D" uid="uid://dmodkw8qq3esg" path="res://Art Assets/demo_ending_screen.png" id="49_32fif"]
 [ext_resource type="Texture2D" uid="uid://dq7351u0nuj6y" path="res://MiniGames/RPS/RPSart/rock_paper_scissors_minigame.png" id="58_1ydbe"]
 [ext_resource type="Script" uid="uid://yim8g05wpv5o" path="res://Scenes/AudioManager.gd" id="62_8rh5o"]
 [ext_resource type="AudioStream" uid="uid://dxvlvty35l22u" path="res://Sounds/390561__iut_paris8__alison_barreau_2016_2017_oldvideogame_1.wav" id="62_81sya"]
@@ -856,7 +856,7 @@ texture = SubResource("PlaceholderTexture2D_73c0r")
 [node name="END SCREEN" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(800, 500)
-scale = Vector2(0.59, 0.59)
+scale = Vector2(10, 10)
 texture = ExtResource("49_32fif")
 metadata/_edit_lock_ = true
 

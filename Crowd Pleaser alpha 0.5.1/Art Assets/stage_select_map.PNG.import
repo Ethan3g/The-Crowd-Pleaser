@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sfpr5cyduwtl"
-path="res://.godot/imported/stage_select_map.PNG-24f35cd1dd370119d35aa25a34f483a4.ctex"
+path="res://.godot/imported/stage_select_map.png-762f229a7c2dbddaa4e380b749755c53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art Assets/stage_select_map.PNG"
-dest_files=["res://.godot/imported/stage_select_map.PNG-24f35cd1dd370119d35aa25a34f483a4.ctex"]
+source_file="res://Art Assets/stage_select_map.png"
+dest_files=["res://.godot/imported/stage_select_map.png-762f229a7c2dbddaa4e380b749755c53.ctex"]
 
 [params]
 
