@@ -100,6 +100,8 @@ func _ready() -> void:
 	$NPCs/NPC6.position.x = 36
 	$NPCs/NPC7.position.x = 54
 	
+	$"END SCREEN".visible = false
+	
 	#time_left = max_time
 	#if timer_bar:
 		#timer_bar.max_value = max_time
@@ -403,6 +405,7 @@ func game_done() -> void:
 			$WinorLose.text = "You Have Died!"
 			$WinorLose.visible = true
 			# Toggle on loose screen
+		$"END SCREEN".visible = true;
 
 # Update progression lights
 func update_lights() -> void:
